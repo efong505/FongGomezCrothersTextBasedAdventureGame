@@ -13,7 +13,7 @@ namespace TextBasedAdventureGame
     /// <summary>
     /// Represents a location on the map
     /// </summary>
-    public class MapLocation
+    public class MapLocation 
     {
         /// <summary>
         /// Description of the location that will be shown to player.
@@ -24,6 +24,8 @@ namespace TextBasedAdventureGame
         /// List of travel options which are a link to where you can go from this location.
         /// </summary>
         public List<TravelOption> TravelOptions { get; set; }
+
+        public List<GameObject> Items { get; set;}
 
         /// <summary>
         /// Single parameter constructor for game location.

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Text Based Adventure Game" Height="600" Width="820">
     <Grid>
-        <TextBlock x:Name="txbLocationDescription" HorizontalAlignment="Left" Height="54" Margin="33,53,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="461"/>
+        <TextBlock x:Name="txbLocationDescription" HorizontalAlignment="Left" Height="54" Margin="33,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="461"/>
         <ListBox x:Name="lbTraveOptions" HorizontalAlignment="Left" Height="100" Margin="33,289,0,0" VerticalAlignment="Top" Width="322" MouseDoubleClick="lbTraveOptions_MouseDoubleClick"/>
         <Label Content="Click on an option to travel in that direction:" HorizontalAlignment="Left" Margin="22,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385"/>
         <Label Content="Location Description:" HorizontalAlignment="Left" Margin="22,22,0,0" VerticalAlignment="Top"/>
