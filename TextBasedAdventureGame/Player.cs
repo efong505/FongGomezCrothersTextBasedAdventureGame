@@ -62,7 +62,7 @@ namespace TextBasedAdventureGame
             Location = location;
             MaxInventory = maxInventory;
             
-            //Inventory = null;
+              //Inventory = null;
         }
     }
 }
