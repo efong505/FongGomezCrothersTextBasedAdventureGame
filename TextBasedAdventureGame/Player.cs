@@ -20,10 +20,10 @@ namespace TextBasedAdventureGame
 
 
 
-        public List<GameObject> Inventory
+        public List<IPortable> Inventory
         {
             get => Inventory;
-            set => Inventory = value;
+            set { Inventory = value; }
             //Calc();
         }
 
@@ -60,7 +60,7 @@ namespace TextBasedAdventureGame
         {
             Location = location;
             MaxInventory = maxInventory;
-            Inventory = null;
+            //Inventory = null;
         }
     }
 }
