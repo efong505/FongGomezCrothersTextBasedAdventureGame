@@ -45,7 +45,7 @@ namespace TextBasedAdventureGame
             if (Size < MaxInventory)
             {
 
-                GameObjects.Add(gameItem);
+                //GameObjects.Add(gameItem);
                 return true;
             }
             else
