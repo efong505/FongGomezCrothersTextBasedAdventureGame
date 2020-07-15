@@ -10,56 +10,58 @@ namespace TextBasedAdventureGame
     public class Player:GameObject
     {
         public static int maxInventory = 6;
-        private int inventorySize;
 
+        public int Size { get; set; }
         public MapLocation Location { get; set; }
         
 
         public int MaxInventory { get; set; }
         
+        public List<GameObject> GameObjects { get; set; }
 
 
 
-        public List<IPortable> Inventory
+        public List<GameObject> Inventory
         {
             get => Inventory;
-            set { Inventory = value; }
-            //Calc();
+            set { Inventory = value; Calc(); }
+            
         }
 
         public void Calc()
         {
-            MaxInventory = Inventory.Count;
-            //foreach (int items in Inventory)
+            //for(int count = 0; count < Inventory.Count; count++)
             //{
-            //    Inventory[items]
+                Size = Inventory.Count;
             //}
+            
+            
             
         }
 
-        //public bool AddInventoryItem(IPortable item)
-        //{
-        //    item.Size = 
-        //    if (item < 6)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        add = false;
-        //    }
-        //    return add;
-        //}
+        public bool AddInventoryItem( GameObject gameItem)
+        {
 
-        //public List<IPortable> Inventory { get; set; }
+            if (Size < MaxInventory)
+            {
+
+                GameObjects.Add(gameItem);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+
+        }
 
 
-
-
-        public Player(MapLocation location) 
+            public Player(MapLocation location) 
         {
             Location = location;
             MaxInventory = maxInventory;
+            
             //Inventory = null;
         }
     }

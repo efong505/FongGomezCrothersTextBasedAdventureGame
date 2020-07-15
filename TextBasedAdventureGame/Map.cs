@@ -34,15 +34,16 @@ namespace TextBasedAdventureGame
         public Map()
         {
             Player player = new Player(PlayerLocation);
+            player.AddInventoryItem(new InventoryItem("Claw"));
             //Create map locations first
             Locations = new List<MapLocation>();
             HidingPlace rock = new HidingPlace("Large Rock");
             rock.HiddenObject = new InventoryItem("Snow Globe");
-            
 
-           // Locations[0].Items.Add(new InventoryItem("Brocken Rifle"));
-           //Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut Butter and " +
-           //    "Jelly Sandwich")));
+
+            Locations[0].Items.Add(new InventoryItem("Brocken Rifle"));
+            Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut Butter and " +
+                "Jelly Sandwich")));
 
             Locations.Add(new MapLocation("You are on a road leading to a town.")); // location 0
             Locations.Add(new MapLocation("You are on a road in front of a saloon.")); // location 1
