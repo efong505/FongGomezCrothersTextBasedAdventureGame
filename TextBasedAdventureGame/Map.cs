@@ -34,7 +34,7 @@ namespace TextBasedAdventureGame
         public Map()
         {
             Player player = new Player(PlayerLocation);
-            player.AddInventoryItem(new InventoryItem("Claw"));
+           // player.AddInventoryItem(new InventoryItem("Claw"));
             //Create map locations first
             Locations = new List<MapLocation>();
             HidingPlace rock = new HidingPlace("Large Rock");
