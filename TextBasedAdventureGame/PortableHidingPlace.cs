@@ -18,7 +18,6 @@ namespace TextBasedAdventureGame
         {
             Description = description;
             Size = size;
-
             this.inventoryItem = inventoryItem;
         }
 
@@ -30,10 +29,12 @@ namespace TextBasedAdventureGame
         }
         private GameObject item;
 
-        public GameObject Search(GameObject gameObject)
+        public GameObject Search()
         {
-            HiddenObject = gameObject;
-            return HiddenObject;
+            GameObject searched;
+            searched = HiddenObject;
+            HiddenObject = null;
+            return searched;
         }
     }
 }

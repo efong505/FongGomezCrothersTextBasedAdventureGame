@@ -9,22 +9,14 @@ namespace TextBasedAdventureGame
 {
     public class Player:GameObject
     {
-
+        public static int maxInventory = 6;
         private int inventorySize;
 
         public MapLocation Location { get; set; }
         
 
-        public int MaxInventory
-        {
-            get => inventorySize;
-            set
-            {
-
-
-                inventorySize = value ;
-            }
-        }
+        public int MaxInventory { get; set; }
+        
 
 
 
@@ -67,8 +59,8 @@ namespace TextBasedAdventureGame
         public Player(MapLocation location) 
         {
             Location = location;
-           
-
+            MaxInventory = maxInventory;
+            Inventory = null;
         }
     }
 }

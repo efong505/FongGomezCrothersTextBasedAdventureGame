@@ -33,7 +33,7 @@ namespace TextBasedAdventureGame
         /// </summary>
         public Map()
         {
-            //Player player = new Player(Locations[0]);
+            Player player = new Player(PlayerLocation);
             //Create map locations first
             Locations = new List<MapLocation>();
             HidingPlace rock = new HidingPlace("Large Rock");

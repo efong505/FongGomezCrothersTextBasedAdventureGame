@@ -11,6 +11,7 @@ namespace TextBasedAdventureGame
 
         public HidingPlace(string description) : base(description)
         {
+
         }
 
         public GameObject HiddenObject 
@@ -19,10 +20,12 @@ namespace TextBasedAdventureGame
             set { hiddenObject = value; }
         }
         // TODO: Need to figure this out - how to return hiddenObject and then set it to null
-        public GameObject Search(GameObject hiddenObject)
+        public GameObject Search()
         {
-            HiddenObject = hiddenObject;
-            return HiddenObject;
+            GameObject searched;
+            searched = HiddenObject;
+            HiddenObject = null;
+            return searched;
 
             
         }
