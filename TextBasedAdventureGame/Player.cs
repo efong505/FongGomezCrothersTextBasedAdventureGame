@@ -57,7 +57,7 @@ namespace TextBasedAdventureGame
         }
 
 
-            public Player(MapLocation location) 
+        public Player(MapLocation location) 
         {
             Location = location;
             MaxInventory = maxInventory;
