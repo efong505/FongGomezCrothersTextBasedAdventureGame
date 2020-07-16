@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="TextBasedAdventureGame.TravelOption">
-    <Position X="14" Y="1" Width="2.25" />
+    <Position X="8.75" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAEAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TravelOption.cs</FileName>
@@ -16,21 +16,21 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TextBasedAdventureGame.Map">
-    <Position X="7.5" Y="0.5" Width="2.5" />
+    <Position X="6" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TextBasedAdventureGame.MapLocation">
-    <Position X="3" Y="0.5" Width="2.75" />
+    <Position X="2.5" Y="0.5" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgCAAEAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>MapLocation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TextBasedAdventureGame.GameObject">
-    <Position X="11.5" Y="1" Width="2" />
+    <Position X="11" Y="0.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObject.cs</FileName>
@@ -45,7 +45,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TextBasedAdventureGame.InventoryItem">
-    <Position X="4.25" Y="4.75" Width="1.5" />
+    <Position X="7.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>InventoryItem.cs</FileName>
@@ -53,17 +53,17 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TextBasedAdventureGame.PortableHidingPlace">
-    <Position X="11" Y="4.75" Width="2.25" />
+    <Position X="4.75" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <HashCode>AAAgAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAACgAAA=</HashCode>
       <FileName>PortableHidingPlace.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TextBasedAdventureGame.Player">
-    <Position X="7.5" Y="4.5" Width="2.25" />
+    <Position X="9.75" Y="3.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAACAAIAAAAAAAAAAAAAAAAAAgAAAAQ=</HashCode>
+      <HashCode>AAAAAgAEAAJAgAACAAIAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -75,7 +75,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="TextBasedAdventureGame.IHidingPlace">
-    <Position X="6" Y="2.5" Width="2" />
+    <Position X="0.5" Y="1.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>IHidingPlace.cs</FileName>

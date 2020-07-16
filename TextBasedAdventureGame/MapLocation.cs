@@ -1,7 +1,7 @@
-﻿// GameLocation
-// Programer: Rob Garner (rgarner7@cnm.edu)
-// Date: 25 May 2016
-// Represents a travel option.
+﻿// MapLocation.cs
+// Programer(s): Edward Fong
+// efong@cnmm.edu 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +24,7 @@ namespace TextBasedAdventureGame
         /// List of travel options which are a link to where you can go from this location.
         /// </summary>
         public List<TravelOption> TravelOptions { get; set; }
-
+ 
         public List<GameObject> Items { get; set;}
 
         /// <summary>
@@ -35,8 +35,13 @@ namespace TextBasedAdventureGame
         {
             Description = description;
             TravelOptions = new List<TravelOption>();
+            Items = new List<GameObject>();
         }
 
+        /// <summary>
+        /// Overidden To String method
+        /// </summary>
+        /// <returns>Returns the Description of the location</returns>
         public override string ToString()
         {
             return Description;

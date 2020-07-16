@@ -1,7 +1,6 @@
-﻿// TravelOption
-// Programer: Rob Garner (rgarner7@cnm.edu)
-// Date: 25 May 2016
-// Represents a travel option.
+﻿// Map.cs
+// Programer(s): Edward Fong
+// efong@cnmm.edu 
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,17 +33,16 @@ namespace TextBasedAdventureGame
         public Map()
         {
             Player player = new Player(PlayerLocation);
+            //if(player.AddInventoryItem()
+            // player.AddInventoryItem(new GameObject("Testing"));
+            //player.AddInventoryItem(new GameObject("restst"));
            // player.AddInventoryItem(new InventoryItem("Claw"));
             //Create map locations first
             Locations = new List<MapLocation>();
             HidingPlace rock = new HidingPlace("Large Rock");
             rock.HiddenObject = new InventoryItem("Snow Globe");
-
-
-            //Locations[0].Items.Add(new InventoryItem("Brocken Rifle"));
-            //Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut Butter and " +
-            //    "Jelly Sandwich")));
-
+            rock.Search(rock.HiddenObject);
+            
             Locations.Add(new MapLocation("You are on a road leading to a town.")); // location 0
             Locations.Add(new MapLocation("You are on a road in front of a saloon.")); // location 1
             Locations.Add(new MapLocation("You are in a saloon.")); // location 2
@@ -53,9 +51,13 @@ namespace TextBasedAdventureGame
             Locations.Add(new MapLocation("You are on a road in front of a general store."));// location 5
             Locations.Add(new MapLocation("You are in a general store.")); // location 6
 
-            
+            Locations[0].Items.Add(new InventoryItem("Test"));
+            Locations[0].Items.Add(new InventoryItem("Brocken Rifle"));
+            Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut Butter and " +
+                "Jelly Sandwich")));
+
             //Now add travel options to each map location
-            
+
             //Road outside town - 0
             Locations[0].TravelOptions.Add(new TravelOption("A town is to the west of you.",Locations[1]));
 

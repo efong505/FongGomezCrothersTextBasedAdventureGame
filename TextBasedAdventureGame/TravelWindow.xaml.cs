@@ -1,7 +1,7 @@
-﻿// TravelWindow
-// Programer: Rob Garner (rgarner7@cnm.edu)
-// Date: 25 May 2016
-// User interface that provides user capability to travel
+﻿// TravelWindow.xamal.cs
+// Programer(s): Edward Fong
+// efong@cnmm.edu 
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +28,7 @@ namespace TextBasedAdventureGame
         /// Game object that has map
         /// </summary>
         Map game;
+        Player player;
 
         /// <summary>
         /// Initialize the form, the game and call display location to start the form.
@@ -36,6 +37,7 @@ namespace TextBasedAdventureGame
         {
             InitializeComponent();
             game = new Map();
+            player = new Player(game.PlayerLocation);
             DisplayLocation();
         }
 
@@ -46,6 +48,8 @@ namespace TextBasedAdventureGame
         {
             txbLocationDescription.Text = game.PlayerLocation.Description;
             lbTraveOptions.ItemsSource = game.PlayerLocation.TravelOptions;
+            lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
+
         }
 
         /// <summary>
@@ -59,5 +63,16 @@ namespace TextBasedAdventureGame
             game.PlayerLocation = to.Location;
             DisplayLocation();
         }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
+            int index = lbItemTakeSearch.SelectedIndex;
+            //PortableHidingPlace to = (PortableHidingPlace)game.PlayerLocation.Items;
+            //lbItemTakeSearch.ItemsSource = to.HiddenObject;
+            // game.PlayerLocation.Items = to.Search(to);
+            lbItemTakeSearch.ItemsSource = to.Search();
+
+        
     }
 }
