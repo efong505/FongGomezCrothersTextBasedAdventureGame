@@ -27,6 +27,7 @@ namespace TextBasedAdventureGame
  
         public List<GameObject> Items { get; set;}
 
+        public List<HidingPlace> HiddenObjects { get; set; }
         /// <summary>
         /// Single parameter constructor for game location.
         /// </summary>
@@ -36,6 +37,8 @@ namespace TextBasedAdventureGame
             Description = description;
             TravelOptions = new List<TravelOption>();
             Items = new List<GameObject>();
+            HiddenObjects = new List<HidingPlace>();
+            
         }
 
         /// <summary>

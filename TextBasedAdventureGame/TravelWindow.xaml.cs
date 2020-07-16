@@ -67,12 +67,15 @@ namespace TextBasedAdventureGame
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
-            int index = lbItemTakeSearch.SelectedIndex;
+            
+            lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
             //PortableHidingPlace to = (PortableHidingPlace)game.PlayerLocation.Items;
             //lbItemTakeSearch.ItemsSource = to.HiddenObject;
             // game.PlayerLocation.Items = to.Search(to);
-            lbItemTakeSearch.ItemsSource = to.Search();
+            //lbItemTakeSearch.ItemsSource = to.Search();
 
+
+        }
         
     }
 }

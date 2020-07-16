@@ -41,8 +41,11 @@ namespace TextBasedAdventureGame
             Locations = new List<MapLocation>();
             HidingPlace rock = new HidingPlace("Large Rock");
             rock.HiddenObject = new InventoryItem("Snow Globe");
-            rock.Search(rock.HiddenObject);
-            
+           
+
+            //Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut butter and jelly sandwich")));
+
+
             Locations.Add(new MapLocation("You are on a road leading to a town.")); // location 0
             Locations.Add(new MapLocation("You are on a road in front of a saloon.")); // location 1
             Locations.Add(new MapLocation("You are in a saloon.")); // location 2
@@ -51,11 +54,12 @@ namespace TextBasedAdventureGame
             Locations.Add(new MapLocation("You are on a road in front of a general store."));// location 5
             Locations.Add(new MapLocation("You are in a general store.")); // location 6
 
+            // objects
             Locations[0].Items.Add(new InventoryItem("Test"));
             Locations[0].Items.Add(new InventoryItem("Brocken Rifle"));
             Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut Butter and " +
                 "Jelly Sandwich")));
-
+            Locations[1].Items.Add(rock);
             //Now add travel options to each map location
 
             //Road outside town - 0
