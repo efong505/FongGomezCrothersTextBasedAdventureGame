@@ -12,8 +12,8 @@
         <ListBox x:Name="lbItemDrop" HorizontalAlignment="Left" Height="240" Margin="498,150,0,0" VerticalAlignment="Top" Width="264"/>
         <Label Content="Invetory: Select item to drop" HorizontalAlignment="Left" Margin="498,118,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="393,164,0,0" VerticalAlignment="Top" Width="74" Click="btnSearch_Click"/>
-        <Button x:Name="btnTake" Content="Take--&gt;" HorizontalAlignment="Left" Margin="393,189,0,0" VerticalAlignment="Top" Width="74"/>
-        <Button x:Name="btnDrop" Content="&lt;--Drop" HorizontalAlignment="Left" Margin="393,214,0,0" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="btnTake" Content="Take--&gt;" HorizontalAlignment="Left" Margin="393,189,0,0" VerticalAlignment="Top" Width="74" Click="btnTake_Click"/>
+        <Button x:Name="btnDrop" Content="&lt;--Drop" HorizontalAlignment="Left" Margin="393,214,0,0" VerticalAlignment="Top" Width="74" Click="btnDrop_Click"/>
         <Label Content="Game Status" HorizontalAlignment="Left" Margin="22,408,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385"/>
         <ListBox x:Name="lbGameStatus" HorizontalAlignment="Left" Height="100" Margin="33,439,0,0" VerticalAlignment="Top" Width="729"/>
 

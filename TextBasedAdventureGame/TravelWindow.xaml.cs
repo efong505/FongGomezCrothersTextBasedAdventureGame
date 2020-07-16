@@ -79,5 +79,18 @@ namespace TextBasedAdventureGame
         {
 
         }
+
+        private void btnTake_Click(object sender, RoutedEventArgs e)
+        {
+
+            GameObject selectobject = new GameObject();
+            selectobject.Description = lbItemTakeSearch.SelectedItem.ToString();
+           // game.PlayerLocation.
+        }
+
+        private void btnDrop_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
