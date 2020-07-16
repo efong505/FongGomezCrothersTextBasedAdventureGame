@@ -27,7 +27,7 @@ namespace TextBasedAdventureGame
         /// <summary>
         /// Game object that has map
         /// </summary>
-        Map game;
+        Map game = new Map() ;
         Player player;
 
         /// <summary>
@@ -66,16 +66,18 @@ namespace TextBasedAdventureGame
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
-            
+            //game.PlayerLocation.HiddenObjects = game.PlayerLocation.HiddenObjects; 
             lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
             //PortableHidingPlace to = (PortableHidingPlace)game.PlayerLocation.Items;
             //lbItemTakeSearch.ItemsSource = to.HiddenObject;
             // game.PlayerLocation.Items = to.Search(to);
             //lbItemTakeSearch.ItemsSource = to.Search();
+           ;
+        }
 
+        private void lbItemTakeSearch_buttonPress(object sender, MouseButtonEventArgs e)
+        {
 
         }
-        
     }
 }

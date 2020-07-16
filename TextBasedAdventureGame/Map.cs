@@ -40,8 +40,8 @@ namespace TextBasedAdventureGame
             //Create map locations first
             Locations = new List<MapLocation>();
             HidingPlace rock = new HidingPlace("Large Rock");
-            rock.HiddenObject = new InventoryItem("Snow Globe");
-           
+            rock.HiddenObject = new GameObject("Snow Globe");
+
 
             //Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut butter and jelly sandwich")));
 
@@ -55,11 +55,16 @@ namespace TextBasedAdventureGame
             Locations.Add(new MapLocation("You are in a general store.")); // location 6
 
             // objects
-            Locations[0].Items.Add(new InventoryItem("Test"));
-            Locations[0].Items.Add(new InventoryItem("Brocken Rifle"));
-            Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut Butter and " +
-                "Jelly Sandwich")));
+            //Locations[0].Items.Add(new InventoryItem("Token"));
+            //Locations[0].Items.Add(new InventoryItem("Brocken Rifle"));
+            //Locations[0].Items.Add(new HidingPlace("Ammo"));
+            //Locations[0].HiddenObjects.Add(new GameObject("GunPowder"));
+            //Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new GameObject("Peanut Butter and " +
+            //    "Jelly Sandwich")));
             Locations[1].Items.Add(rock);
+            Locations[2].Items.Add(new GameObject("Broken Chair"));
+            Locations[2].Items.Add(new HidingPlace("Chair"));
+            Locations[2].HiddenObjects.Add(new GameObject("Snake"));
             //Now add travel options to each map location
 
             //Road outside town - 0

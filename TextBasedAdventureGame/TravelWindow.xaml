@@ -8,7 +8,7 @@
         <Label Content="Click on an option to travel in that direction:" HorizontalAlignment="Left" Margin="22,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385"/>
         <Label Content="Location Description:" HorizontalAlignment="Left" Margin="22,22,0,0" VerticalAlignment="Top"/>
         <Label Content="Select an item to take or search" HorizontalAlignment="Left" Margin="22,118,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lbItemTakeSearch" HorizontalAlignment="Left" Height="100" Margin="33,150,0,0" VerticalAlignment="Top" Width="322"/>
+        <ListBox x:Name="lbItemTakeSearch" HorizontalAlignment="Left" Height="100" Margin="33,150,0,0" VerticalAlignment="Top" Width="322" MouseDown="lbItemTakeSearch_buttonPress"/>
         <ListBox x:Name="lbItemDrop" HorizontalAlignment="Left" Height="240" Margin="498,150,0,0" VerticalAlignment="Top" Width="264"/>
         <Label Content="Invetory: Select item to drop" HorizontalAlignment="Left" Margin="498,118,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="393,164,0,0" VerticalAlignment="Top" Width="74" Click="btnSearch_Click"/>

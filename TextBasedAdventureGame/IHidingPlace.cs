@@ -11,6 +11,6 @@ namespace TextBasedAdventureGame
     interface IHidingPlace
     {
         GameObject  HiddenObject { get; set; }
-        GameObject Search(GameObject gameObject);
+        GameObject Search();
     }
 }

@@ -26,17 +26,17 @@ namespace TextBasedAdventureGame
         public GameObject HiddenObject
         {
             get => hiddenObject;
-            set { hiddenObject = value; }
+            set { hiddenObject = value; Search(); }
         }
         //private GameObject item;
 
-        public GameObject Search(GameObject gameObject)
+        public GameObject Search()
         {
-            GameObject searched;
+            ////GameObject searched;
 
-            searched = HiddenObject;
-            HiddenObject = null;
-            return searched;
+            //searched = HiddenObject;
+            ////hiddenObject = null;
+            return HiddenObject;
         }
     }
 }
