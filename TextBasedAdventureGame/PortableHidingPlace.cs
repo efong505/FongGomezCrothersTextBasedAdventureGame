@@ -18,7 +18,7 @@ namespace TextBasedAdventureGame
         {
             Description = description;
             Size = size;
-
+            //
             this.inventoryItem = inventoryItem;
         }
 
