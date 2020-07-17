@@ -78,10 +78,10 @@ namespace TextBasedAdventureGame
             //TODO: Once determined then do if/else or switch for each type
              //attribute = lbItemTakeSearch.SelectedItem.GetType();
 
-            if (lbItemTakeSearch.SelectedItem.GetType() == PortableHidingPlace)
-            {
-                attribute to = (attribute)lbItemTakeSearch.SelectedItem;
-            }
+            //if (lbItemTakeSearch.SelectedItem.GetType() == PortableHidingPlace)
+            //{
+            //    attribute to = (attribute)lbItemTakeSearch.SelectedItem;
+            //}
 
             PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
             game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = to.HiddenObject;
