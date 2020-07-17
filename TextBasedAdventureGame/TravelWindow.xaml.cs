@@ -74,7 +74,15 @@ namespace TextBasedAdventureGame
         {
             //game.PlayerLocation.HiddenObjects = game.PlayerLocation.HiddenObjects; 
 
-            
+            //TODO: Determine type of game object 
+            //TODO: Once determined then do if/else or switch for each type
+             //attribute = lbItemTakeSearch.SelectedItem.GetType();
+
+            if (lbItemTakeSearch.SelectedItem.GetType() == PortableHidingPlace)
+            {
+                attribute to = (attribute)lbItemTakeSearch.SelectedItem;
+            }
+
             PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
             game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = to.HiddenObject;
             //lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
@@ -105,8 +113,8 @@ namespace TextBasedAdventureGame
             //{
                 if (player.AddInventoryItem(item))
                 {
-                    
-                    
+                game.PlayerLocation.Items.Remove(item);
+                lbItemTakeSearch.Items.Refresh();    
                     //player.AddInventoryItem(item);
                 }
                 
@@ -126,6 +134,8 @@ namespace TextBasedAdventureGame
         {
             item = (InventoryItem)lbItemDrop.SelectedItem;
             player.RemoveInventoryItem(item);
+            game.PlayerLocation.Items.Add(item);
+            lbItemTakeSearch.Items.Refresh();
             UpdateDisplay();
         }
 
