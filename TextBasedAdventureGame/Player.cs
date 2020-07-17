@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace TextBasedAdventureGame
 {
-    public class Player:GameObject
+    public class Player:GameObject,IPortable
     {
         /// <summary>
         /// static int maxInventory field
@@ -61,7 +61,7 @@ namespace TextBasedAdventureGame
         /// <returns></returns>
         public bool AddInventoryItem(IPortable gameItem)
         {
-           
+            //InventoryItem item = new InventoryItem(gameItem.ToString());
             if (Size < MaxInventory)
             {
                 Inventory.Add(gameItem);
@@ -86,9 +86,10 @@ namespace TextBasedAdventureGame
         {
             Location = location;
             MaxInventory = maxInventory;
-            GameObjects = new List<GameObject>();
+           // GameObjects = new List<GameObject>();
             Size = 1;
-            
+            Inventory = new List<IPortable>(); 
+             
             
             
 

@@ -81,10 +81,10 @@ namespace TextBasedAdventureGame
             // game.PlayerLocation.Items = to.Search(to);
             //lbItemTakeSearch.ItemsSource = to.Search();
             //UpdateDisplay();
-            bool Testing;
-            InventoryItem test = new InventoryItem("Testing");
-            test.Size = 21;
-            Testing = player.AddInventoryItem(test);
+            //bool Testing;
+            //InventoryItem test = new InventoryItem("Testing");
+            //test.Size = 21;
+            //Testing = player.AddInventoryItem(test);
             
         }
 
@@ -103,7 +103,7 @@ namespace TextBasedAdventureGame
             //{
                 if (player.AddInventoryItem(item))
                 {
-                    player.AddInventoryItem(item);
+                    //player.AddInventoryItem(item);
                 }
                 
             //}
