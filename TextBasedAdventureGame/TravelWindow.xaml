@@ -1,7 +1,7 @@
 ﻿<Window x:Class="TextBasedAdventureGame.TravelWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Text Based Adventure Game" Height="600" Width="820">
+        Title="The Adventures of The Travelling CNM Attend Anywhere Student" Height="600" Width="820" Icon="6932f8af-90b2-41cc-b743-6ea0d97116db.jpeg">
     <Grid>
         <TextBlock x:Name="txbLocationDescription" HorizontalAlignment="Left" Height="54" Margin="33,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="461"/>
         <ListBox x:Name="lbTraveOptions" HorizontalAlignment="Left" Height="100" Margin="33,289,0,0" VerticalAlignment="Top" Width="322" MouseDoubleClick="lbTraveOptions_MouseDoubleClick"/>

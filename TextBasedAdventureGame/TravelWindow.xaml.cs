@@ -62,17 +62,19 @@ namespace TextBasedAdventureGame
             TravelOption to = (TravelOption)lbTraveOptions.SelectedItem;
             game.PlayerLocation = to.Location;
             DisplayLocation();
+           // UpdateDisplay();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             //game.PlayerLocation.HiddenObjects = game.PlayerLocation.HiddenObjects; 
+          
             lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
             //PortableHidingPlace to = (PortableHidingPlace)game.PlayerLocation.Items;
             //lbItemTakeSearch.ItemsSource = to.HiddenObject;
             // game.PlayerLocation.Items = to.Search(to);
             //lbItemTakeSearch.ItemsSource = to.Search();
-           ;
+            UpdateDisplay();
         }
 
         private void lbItemTakeSearch_buttonPress(object sender, MouseButtonEventArgs e)
@@ -85,11 +87,22 @@ namespace TextBasedAdventureGame
 
             GameObject selectobject = new GameObject();
             selectobject.Description = lbItemTakeSearch.SelectedItem.ToString();
-           // game.PlayerLocation.
+            // game.PlayerLocation.
+            UpdateDisplay();
         }
 
         private void btnDrop_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+        private void UpdateDisplay()
+        {
+            lbItemTakeSearch.Items.Refresh();
+            lbTraveOptions.Items.Refresh();
+            txbLocationDescription.Text = game.PlayerLocation.Description;
+            lbItemDrop.Items.Refresh();
+
 
         }
     }
