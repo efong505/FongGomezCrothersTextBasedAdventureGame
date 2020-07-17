@@ -103,7 +103,7 @@ namespace TextBasedAdventureGame
             //{
                 if (player.AddInventoryItem(item))
                 {
-                    player.Inventory.Add(item);
+                    player.AddInventoryItem(item);
                 }
                 
             //}

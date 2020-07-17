@@ -10,9 +10,9 @@ namespace TextBasedAdventureGame
 {
     public class InventoryItem : GameObject, IPortable
     {
-        public InventoryItem(string item)
+        public InventoryItem(string description):base(description)
         {
-            Description = item;
+            Description = description;
             Size = 1;
         }
 

@@ -11,7 +11,7 @@ namespace TextBasedAdventureGame
 {
     public class GameObject
     {
-        public string Description { get; set; }
+        public virtual string Description { get; set; }
         public GameObject(string description) 
         {
             Description = description;

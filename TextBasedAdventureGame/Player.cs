@@ -64,19 +64,23 @@ namespace TextBasedAdventureGame
            
             if (Size < MaxInventory)
             {
-
+                Inventory.Add(gameItem);
                 Size += gameItem.Size;
-                
+                Calc();
                 return true;
             }
             else
             {
                 return false;
             }
-            
-
+           
         }
 
+        public void RemoveInventoryItem(IPortable item)
+        {
+            Inventory.Remove(item);
+            Calc();
+        }
 
         public Player(MapLocation location) 
         {
@@ -84,6 +88,7 @@ namespace TextBasedAdventureGame
             MaxInventory = maxInventory;
             GameObjects = new List<GameObject>();
             Size = 1;
+            
             
             
 
