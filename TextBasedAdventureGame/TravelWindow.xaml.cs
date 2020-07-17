@@ -24,6 +24,7 @@ namespace TextBasedAdventureGame
     /// </summary>
     public partial class TravelWindow : Window
     {
+        InventoryItem item;
         /// <summary>
         /// Game object that has map
         /// </summary>
@@ -39,6 +40,7 @@ namespace TextBasedAdventureGame
             game = new Map();
             player = new Player(game.PlayerLocation);
             lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
+            item = new InventoryItem("Pocket Lint");
             DisplayLocation();
             
         }
@@ -73,7 +75,7 @@ namespace TextBasedAdventureGame
             //game.PlayerLocation.HiddenObjects = game.PlayerLocation.HiddenObjects; 
 
             
-            HidingPlace to = (HidingPlace)lbItemTakeSearch.SelectedItem;
+            PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
             game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = to.HiddenObject;
             //lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
             //PortableHidingPlace to = (PortableHidingPlace)game.PlayerLocation.Items;
@@ -96,13 +98,15 @@ namespace TextBasedAdventureGame
         private void btnTake_Click(object sender, RoutedEventArgs e)
         {
            
-            InventoryItem item = new InventoryItem("");
+            
             lbItemDrop.ItemsSource = player.Inventory;
             item = (InventoryItem)lbItemTakeSearch.SelectedItem;
             //if(player.Inventory != null)
             //{
                 if (player.AddInventoryItem(item))
                 {
+                    
+                    
                     //player.AddInventoryItem(item);
                 }
                 
@@ -111,6 +115,7 @@ namespace TextBasedAdventureGame
 
            
             lbItemDrop.Items.Refresh();
+            lbItemTakeSearch.Items.Refresh();
             //GameObject selectobject = new GameObject();
             //selectobject.Description = lbItemTakeSearch.SelectedItem.ToString();
             //// game.PlayerLocation.
@@ -119,7 +124,9 @@ namespace TextBasedAdventureGame
 
         private void btnDrop_Click(object sender, RoutedEventArgs e)
         {
-            
+            item = (InventoryItem)lbItemDrop.SelectedItem;
+            player.RemoveInventoryItem(item);
+            UpdateDisplay();
         }
 
         private void UpdateDisplay()

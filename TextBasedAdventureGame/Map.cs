@@ -168,7 +168,7 @@ namespace TextBasedAdventureGame
 
             //3
             HidingPlace MetalBox = new HidingPlace("MetalBox");
-            Purse.HiddenObject = new GameObject("Bone");
+            Purse.HiddenObject = new InventoryItem("Bone");
             InventoryItem Chip = new InventoryItem("Bellagio Casino Chip");
             InventoryItem crab = new InventoryItem("Crab");
             
@@ -178,7 +178,7 @@ namespace TextBasedAdventureGame
 
             //4
             HidingPlace TikiStatue = new HidingPlace("Tiki Statue");
-            TikiStatue.HiddenObject = new GameObject("Large Rare Diamond");
+            TikiStatue.HiddenObject = new InventoryItem("Large Rare Diamond");
             InventoryItem LargeCrab = new InventoryItem("A Larger Crab");
             InventoryItem shell = new InventoryItem("Conch Shell");
             
