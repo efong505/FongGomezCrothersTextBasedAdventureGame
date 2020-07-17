@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
+using System.Windows.Media.TextFormatting;
 
 namespace TextBasedAdventureGame
 {
@@ -120,12 +121,96 @@ namespace TextBasedAdventureGame
             //Locations[0].HiddenObjects.Add(new GameObject("GunPowder"));
             //Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new GameObject("Peanut Butter and " +
             //    "Jelly Sandwich")));
-            HidingPlace rock = new HidingPlace("Large Rock");
-            rock.HiddenObject = new GameObject("Snow Globe");
+
+            // recenlty commented
+            //HidingPlace rock = new HidingPlace("Large Rock");
+            //rock.HiddenObject = new GameObject("Snow Globe");
+            //Locations[0].Items.Add(rock);
+            //Locations[2].Items.Add(new GameObject("Broken Chair"));
+            //Locations[2].Items.Add(new HidingPlace("Chair"));
+            //Locations[2].HiddenObjects.Add(new GameObject("Snake"));
+            //0
+            //Locations[0].Items.Add(new InventoryItem("New York Travel Brochure"));
+            InventoryItem brochure = new InventoryItem("New York Travel Brochure");
+            brochure.Size = 1;
+            HidingPlace rock = new HidingPlace("Hollow Rock");
+            rock.HiddenObject = new InventoryItem("Key");
+            
+            
             Locations[0].Items.Add(rock);
-            Locations[2].Items.Add(new GameObject("Broken Chair"));
-            Locations[2].Items.Add(new HidingPlace("Chair"));
-            Locations[2].HiddenObjects.Add(new GameObject("Snake"));
+            Locations[0].Items.Add(brochure);
+
+
+            //1
+            InventoryItem LrgRock = new InventoryItem("Large Rock");
+            HidingPlace SeaShell  = new HidingPlace("Sea Shell");
+            SeaShell.HiddenObject = new InventoryItem("Gold Coin");
+            Locations[1].Items.Add(LrgRock);
+            Locations[1].Items.Add(SeaShell);
+
+            //Locations[1].Items.Add(new InventoryItem("Large Rock"));
+            //Locations[1].Items.Add(new HidingPlace("Sea Shell"));
+            //Locations[1].HiddenObjects.Add(new GameObject("Gold Coin"));
+           // HidingPlace SeaShell = new HidingPlace("SeaShell");
+            //SeaShell.HiddenObject = new GameObject("Gold coin");
+            //Locations[1].Items.Add(SeaShell);
+
+
+            //2
+            HidingPlace Purse = new HidingPlace("Purse");
+            Purse.HiddenObject = new InventoryItem("Knife");
+            InventoryItem Shell = new InventoryItem("Conch Shell");
+            InventoryItem Crab = new InventoryItem("Crab");
+
+            Locations[2].Items.Add(Purse);
+            Locations[2].Items.Add(Shell);
+            Locations[2].Items.Add(Crab);
+
+            //3
+            HidingPlace MetalBox = new HidingPlace("MetalBox");
+            Purse.HiddenObject = new GameObject("Bone");
+            InventoryItem Chip = new InventoryItem("Bellagio Casino Chip");
+            InventoryItem crab = new InventoryItem("Crab");
+            
+            Locations[3].Items.Add(MetalBox);
+            Locations[3].Items.Add(crab);
+            Locations[3].Items.Add(Chip);
+
+            //4
+            HidingPlace TikiStatue = new HidingPlace("Tiki Statue");
+            TikiStatue.HiddenObject = new GameObject("Large Rare Diamond");
+            InventoryItem LargeCrab = new InventoryItem("A Larger Crab");
+            InventoryItem shell = new InventoryItem("Conch Shell");
+            
+            Locations[4].Items.Add(TikiStatue);
+            Locations[4].Items.Add(shell);
+            Locations[4].Items.Add(LargeCrab);
+
+            //5
+            Locations[5].Items.Add(new PortableHidingPlace("Lunch Box", 2, new InventoryItem("Can of Tuna")));
+            InventoryItem flashlight = new InventoryItem("Old Flashlight");
+            InventoryItem Skeleto = new InventoryItem("Human Skeleton"); // Not portable
+            Skeleto.Size = 20;
+            InventoryItem crab2 = new InventoryItem("Crab");
+            
+            Locations[5].Items.Add(flashlight);
+            Locations[5].Items.Add(crab2);
+
+            //6
+            Locations[6].Items.Add(new InventoryItem("Message in a bottle"));
+            Locations[6].Items.Add(new InventoryItem("Trash"));
+            Locations[6].Items.Add(new InventoryItem("Surf Board with Shark bite"));
+
+            //7
+            HidingPlace LargeRock = new HidingPlace("Large Rock");
+            LargeRock.HiddenObject = new InventoryItem("Gold piece");
+            Locations[7].Items.Add(LargeRock);
+
+            //8         
+            Locations[8].Items.Add(new InventoryItem("a homeade metal helmet full of holes with 'Ned Kelly' engraved"));
+
+            //9
+            Locations[9].Items.Add(new InventoryItem("Take home Pizza"));
 
 
             #endregion

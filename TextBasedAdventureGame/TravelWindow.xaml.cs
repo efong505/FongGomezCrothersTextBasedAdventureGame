@@ -27,7 +27,7 @@ namespace TextBasedAdventureGame
         /// <summary>
         /// Game object that has map
         /// </summary>
-        Map game = new Map() ;
+        Map game;
         Player player;
 
         /// <summary>
@@ -38,7 +38,9 @@ namespace TextBasedAdventureGame
             InitializeComponent();
             game = new Map();
             player = new Player(game.PlayerLocation);
+            lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
             DisplayLocation();
+            
         }
 
         /// <summary>
@@ -49,6 +51,7 @@ namespace TextBasedAdventureGame
             txbLocationDescription.Text = game.PlayerLocation.Description;
             lbTraveOptions.ItemsSource = game.PlayerLocation.TravelOptions;
             lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
+           
 
         }
 
@@ -68,26 +71,49 @@ namespace TextBasedAdventureGame
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
             //game.PlayerLocation.HiddenObjects = game.PlayerLocation.HiddenObjects; 
-          
-            lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
+
+            
+            HidingPlace to = (HidingPlace)lbItemTakeSearch.SelectedItem;
+            game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = to.HiddenObject;
+            //lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
             //PortableHidingPlace to = (PortableHidingPlace)game.PlayerLocation.Items;
             //lbItemTakeSearch.ItemsSource = to.HiddenObject;
             // game.PlayerLocation.Items = to.Search(to);
             //lbItemTakeSearch.ItemsSource = to.Search();
-            UpdateDisplay();
+            //UpdateDisplay();
+            bool Testing;
+            InventoryItem test = new InventoryItem("Testing");
+            test.Size = 21;
+            Testing = player.AddInventoryItem(test);
+            
         }
 
         private void lbItemTakeSearch_buttonPress(object sender, MouseButtonEventArgs e)
         {
-
+            //if(player.AddInventoryItem())
         }
 
         private void btnTake_Click(object sender, RoutedEventArgs e)
         {
+           
+            InventoryItem item = new InventoryItem("");
+            lbItemDrop.ItemsSource = player.Inventory;
+            item = (InventoryItem)lbItemTakeSearch.SelectedItem;
+            //if(player.Inventory != null)
+            //{
+                if (player.AddInventoryItem(item))
+                {
+                    player.Inventory.Add(item);
+                }
+                
+            //}
+          
 
-            GameObject selectobject = new GameObject();
-            selectobject.Description = lbItemTakeSearch.SelectedItem.ToString();
-            // game.PlayerLocation.
+           
+            lbItemDrop.Items.Refresh();
+            //GameObject selectobject = new GameObject();
+            //selectobject.Description = lbItemTakeSearch.SelectedItem.ToString();
+            //// game.PlayerLocation.
             UpdateDisplay();
         }
 
@@ -98,11 +124,11 @@ namespace TextBasedAdventureGame
 
         private void UpdateDisplay()
         {
-            lbItemTakeSearch.Items.Refresh();
+            //lbItemTakeSearch.Items.Refresh();
             lbTraveOptions.Items.Refresh();
             txbLocationDescription.Text = game.PlayerLocation.Description;
             lbItemDrop.Items.Refresh();
-
+           // lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
 
         }
     }

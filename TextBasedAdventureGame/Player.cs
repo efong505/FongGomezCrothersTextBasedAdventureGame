@@ -38,20 +38,19 @@ namespace TextBasedAdventureGame
         /// <summary>
         /// Inventory IPortable Property
         /// </summary>
-        public List<IPortable> Inventory
-        {
-            get => Inventory;
-            set { Inventory = value; Calc(); }
-        }
+        public List<IPortable> Inventory { get; set; }
+       
 
         /// <summary>
         /// Calculate the size of the objects in the Inventory
         /// </summary>
         public void Calc()
         {
+            
             for (int count = 0; count < Inventory.Count; count++)
             {
                 Size += Inventory[count].Size;
+                
             }
         }
         /// <summary>
@@ -62,7 +61,7 @@ namespace TextBasedAdventureGame
         /// <returns></returns>
         public bool AddInventoryItem(IPortable gameItem)
         {
-
+           
             if (Size < MaxInventory)
             {
 
@@ -84,6 +83,7 @@ namespace TextBasedAdventureGame
             Location = location;
             MaxInventory = maxInventory;
             GameObjects = new List<GameObject>();
+            Size = 1;
             
             
 

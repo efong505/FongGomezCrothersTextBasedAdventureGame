@@ -13,6 +13,7 @@ namespace TextBasedAdventureGame
         public InventoryItem(string item)
         {
             Description = item;
+            Size = 1;
         }
 
         public int Size { get; set; }
