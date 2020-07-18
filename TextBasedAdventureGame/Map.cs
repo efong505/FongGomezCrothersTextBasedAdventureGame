@@ -100,6 +100,7 @@ namespace TextBasedAdventureGame
 
             //Touring Manhattan- 9
             Locations[9].TravelOptions.Add(new TravelOption("Walk back to subway and take subway back to JFK International Airport", Locations[7]));
+            Locations[9].TravelOptions.Add(new TravelOption("Walk back to Manhattan", Locations[8]));
 
             #endregion
 
