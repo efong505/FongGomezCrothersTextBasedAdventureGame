@@ -25,16 +25,16 @@ namespace TextBasedAdventureGame
     /// </summary>
     public partial class TravelWindow : Window
     {
-        InventoryItem Invitem;
+        // Item objects
+        InventoryItem Invitem; 
         HidingPlace Hidingitem;
         PortableHidingPlace Portitem;
-        /// <summary>
-        /// Game object that has map
-        /// </summary>
+
+        // game and player object
         Map game;
         Player player;
 
-
+        
         /// <summary>
         /// Initialize the form, the game and call display location to start the form.
         /// </summary>
@@ -49,10 +49,9 @@ namespace TextBasedAdventureGame
             Portitem = new PortableHidingPlace("Pocket Lint", 1, Invitem);
             Invitem = new InventoryItem("Pocket Lint");
             DisplayLocation();
-
-
         }
 
+        // Display Location
         /// <summary>
         /// Tells the player where they are.
         /// </summary>
@@ -61,10 +60,9 @@ namespace TextBasedAdventureGame
             txbLocationDescription.Text = game.PlayerLocation.Description;
             lbTraveOptions.ItemsSource = game.PlayerLocation.TravelOptions;
             lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
-
-
         }
 
+        // List Box double click travel option to move to new location on map
         /// <summary>
         /// Double click a travel option to move to a new location on the map.
         /// </summary>
@@ -75,66 +73,45 @@ namespace TextBasedAdventureGame
             TravelOption to = (TravelOption)lbTraveOptions.SelectedItem;
             game.PlayerLocation = to.Location;
             DisplayLocation();
-            // UpdateDisplay();
         }
 
+        // Search button event handler
+        /// <summary>
+        /// Search button event handler
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-
-            if (CheckType(lbItemTakeSearch.SelectedItem) != 1)
+            // check if item is not an Inventory Item
+            if (CheckType(lbItemTakeSearch.SelectedItem) != 1) 
             {
-                if(CheckType(lbItemTakeSearch.SelectedItem)== 2)
+                // Hidden Object
+                if(CheckType(lbItemTakeSearch.SelectedItem)== 2) // check if Hidden object
                 {
                     HidingPlace hiding = (HidingPlace)lbItemTakeSearch.SelectedItem;
                     game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] =  hiding.Search();
                     lbItemTakeSearch.Items.Refresh();
                     //UpdateDisplay();
                 }
-
-                else if(CheckType(lbItemTakeSearch.SelectedItem)==3)
+                // Portable Hiding Obeject
+                else if(CheckType(lbItemTakeSearch.SelectedItem)==3) // check if portabalhidden object
                 {
                     PortableHidingPlace portHiding = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
                     game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = portHiding.Search();
                     lbItemTakeSearch.Items.Refresh();
                 }
-                ClearGameStatus();
-                UpdateDisplay();
+                ClearGameStatus(); // Clear GameStatus List box
+                UpdateDisplay(); // Update Disaplay
             }
             else
             {
+                // Clear Game Status List box
                 ClearGameStatus();
-                lbGameStatus.Items.Add(new InventoryItem("Not a hiding object"));
+                lbGameStatus.Items.Add(new InventoryItem("Not a hiding object")); // displays message in game status listbox that not a hiding object
             }
-            //game.PlayerLocation.HiddenObjects = game.PlayerLocation.HiddenObjects; 
-
-            //TODO: Determine type of game object 
-            //TODO: Once determined then do if/else or switch for each type
-            //attribute = lbItemTakeSearch.SelectedItem.GetType();
-
-            //if (lbItemTakeSearch.SelectedItem.GetType() == PortableHidingPlace)
-            //{
-            //    attribute to = (attribute)lbItemTakeSearch.SelectedItem;
-            //}
-
-            //PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
-            //game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = to.HiddenObject;
-            //lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
-            //PortableHidingPlace to = (PortableHidingPlace)game.PlayerLocation.Items;
-            //lbItemTakeSearch.ItemsSource = to.HiddenObject;
-            // game.PlayerLocation.Items = to.Search(to);
-            //lbItemTakeSearch.ItemsSource = to.Search();
-            //UpdateDisplay();
-            //bool Testing;
-            //InventoryItem test = new InventoryItem("Testing");
-            //test.Size = 21;
-            //Testing = player.AddInventoryItem(test);
-
         }
 
-        private void lbItemTakeSearch_buttonPress(object sender, MouseButtonEventArgs e)
-        {
-            //if(player.AddInventoryItem())
-        }
         // check if object is Portable
         /// <summary>
         /// Takes in GameObject Inventory, PortableHidingPlace, and Hiding Places Types and 
@@ -151,6 +128,7 @@ namespace TextBasedAdventureGame
             else
                 return false;
         }
+
         // check which portable type object is
         /// <summary>
         /// Takes portable typed objects.
@@ -187,53 +165,36 @@ namespace TextBasedAdventureGame
             // check if portable
             if (isIPortable(lbItemTakeSearch.SelectedItem))
             {
-                CheckType(lbItemTakeSearch.SelectedItem);
+                // checkt the type selected item is and use switch to choose correct selected item type
                 int type = CheckType(lbItemTakeSearch.SelectedItem);
                 switch (type)
                 {
-                    case 1:
+                    case 1: // InventoryItem type
                         lbItemDrop.ItemsSource = player.Inventory;
 
-                        Invitem = (InventoryItem)lbItemTakeSearch.SelectedItem;
-                        //if(player.Inventory != null)
-                        //{
-                        if (player.AddInventoryItem(Invitem))
+                        Invitem = (InventoryItem)lbItemTakeSearch.SelectedItem; // cast selected item to InventoryItem
+                        
+                        if (player.AddInventoryItem(Invitem)) // check if item will Max player inventory and then add item to player inventory
                         {
-                            game.PlayerLocation.Items.Remove(Invitem);
-                            lbItemTakeSearch.Items.Refresh();
-                            ClearGameStatus();
+                            game.PlayerLocation.Items.Remove(Invitem); // remove item from location
+                            lbItemTakeSearch.Items.Refresh(); // refresh 
+                            ClearGameStatus(); // clear left over GameStatus in GameResult List box
                         }
-                        else
+                        else // if inventory Max reached then add message that reached max in gamestatus listbox
                         {
                             ClearGameStatus();
                             lbGameStatus.Items.Add(new InventoryItem("You've reached the maximum of your inventory limit"));
                         }
-                        
                         break;
-                    case 2:
+
+                    case 2: // Non Portable type (HidingPlace) == leave not portable message
                         ClearGameStatus();
                         lbGameStatus.Items.Add(new InventoryItem("Item is not portable"));
-                        //lbItemDrop.ItemsSource = player.Inventory;
-
-                        //Hidingitem = (HidingPlace)lbItemTakeSearch.SelectedItem;
-                        ////if(player.Inventory != null)
-                        ////{
-
-                        //if (player.AddInventoryItem((InventoryItem)Hidingitem.HiddenObject))
-                        //{
-                        //    game.PlayerLocation.Items.Remove(Hidingitem);
-                        //    lbItemTakeSearch.Items.Refresh();
-                        //    //player.AddInventoryItem(item);
-                        //}
-
-
                         break;
-                    case 3:
-                        lbItemDrop.ItemsSource = player.Inventory;
 
+                    case 3: // PortableHidingPlace type
+                        lbItemDrop.ItemsSource = player.Inventory;
                         Portitem = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
-                        //if(player.Inventory != null)
-                        //{
 
                         if (player.AddInventoryItem(Portitem))
                         {

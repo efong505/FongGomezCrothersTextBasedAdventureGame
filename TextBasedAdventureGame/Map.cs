@@ -34,16 +34,8 @@ namespace TextBasedAdventureGame
         public Map()
         {
             Player player = new Player(PlayerLocation);
-            //if(player.AddInventoryItem()
-            // player.AddInventoryItem(new GameObject("Testing"));
-            //player.AddInventoryItem(new GameObject("restst"));
-           // player.AddInventoryItem(new InventoryItem("Claw"));
-            //Create map locations first
             Locations = new List<MapLocation>();
 
-
-
-            //Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new InventoryItem("Peanut butter and jelly sandwich")));
             #region Old Locations
             /* // Original Locations
              Locations.Add(new MapLocation("You are on a road leading to a town.")); // location 0
@@ -55,9 +47,8 @@ namespace TextBasedAdventureGame
              Locations.Add(new MapLocation("You are in a general store.")); // location 6
             */
             #endregion
-
+                
             #region New Locations
-            //TODO: New Locations
             Locations.Add(new MapLocation("You are at CNM in front of a sign that says this way to Hawaii.")); // location 0
             Locations.Add(new MapLocation("You Are at the San Diego Pier")); // location 1
             Locations.Add(new MapLocation("You are standing in front of Aloha Tower with the cruise ship behind you")); // location 2
@@ -71,8 +62,7 @@ namespace TextBasedAdventureGame
             #endregion
 
             #region New Travel Options
-            //Now add travel options to each map location
-
+            
             //In front of CNM Sign - 0
             Locations[0].TravelOptions.Add(new TravelOption("Jump in your car and drive west to San Diego Pier.", Locations[1]));
             Locations[0].TravelOptions.Add(new TravelOption("Take an Uber to the airport ", Locations[6]));
@@ -114,7 +104,7 @@ namespace TextBasedAdventureGame
             #endregion
 
             #region Objects
-            //0
+            // 0.) In front of CNM Sign - 0
             InventoryItem brochure = new InventoryItem("New York Travel Brochure");
             brochure.Size = 1;
             PortableHidingPlace rock = new PortableHidingPlace("Hollow Rock",1,
@@ -123,23 +113,16 @@ namespace TextBasedAdventureGame
             Locations[0].Items.Add(brochure);
 
 
-            //1
+            // 1.) - At Sandiego Pier 
             InventoryItem LrgRock = new InventoryItem("Large Rock");
-            LrgRock.Size = 20; //TODO: Size doesn't trigger unportable. Need to figure out why additem bool not working
+            LrgRock.Size = 20; // Set to higher than max so cannot be moved
             HidingPlace SeaShell  = new HidingPlace("Sea Shell");
             SeaShell.HiddenObject = new InventoryItem("Gold Coin");
+            // Add objects to List
             Locations[1].Items.Add(LrgRock);
             Locations[1].Items.Add(SeaShell);
 
-            //Locations[1].Items.Add(new InventoryItem("Large Rock"));
-            //Locations[1].Items.Add(new HidingPlace("Sea Shell"));
-            //Locations[1].HiddenObjects.Add(new GameObject("Gold Coin"));
-           // HidingPlace SeaShell = new HidingPlace("SeaShell");
-            //SeaShell.HiddenObject = new GameObject("Gold coin");
-            //Locations[1].Items.Add(SeaShell);
-
-
-            //2
+            // 2.) - In Honolulu Boat Harbor in front of Aloha Tower 
             PortableHidingPlace Purse = new PortableHidingPlace("Purse",1,new InventoryItem("Knife"));
             InventoryItem Shell = new InventoryItem("Conch Shell");
             InventoryItem Crab = new InventoryItem("Crab");
@@ -148,9 +131,9 @@ namespace TextBasedAdventureGame
             Locations[2].Items.Add(Shell);
             Locations[2].Items.Add(Crab);
 
-            //3
-            HidingPlace MetalBox = new HidingPlace("MetalBox");
-            
+            // 3.) Standing in front of Makua Cave
+            PortableHidingPlace MetalBox = new PortableHidingPlace("MetalBox",
+                2,new InventoryItem("Bone"));
             InventoryItem Chip = new InventoryItem("Bellagio Casino Chip");
             InventoryItem crab = new InventoryItem("Crab");
             
@@ -158,18 +141,18 @@ namespace TextBasedAdventureGame
             Locations[3].Items.Add(crab);
             Locations[3].Items.Add(Chip);
 
-            //4
-            HidingPlace TikiStatue = new HidingPlace("Tiki Statue");
-            
+            // 4.) In Makua Cave
+            HidingPlace TikiStatue = new HidingPlace("Tiki Statue"); 
             TikiStatue.HiddenObject = new InventoryItem("Large Rare Diamond");
             InventoryItem LargeCrab = new InventoryItem("A Larger Crab");
+            LargeCrab.Size = 2;
             InventoryItem shell = new InventoryItem("Conch Shell");
             
             Locations[4].Items.Add(TikiStatue);
             Locations[4].Items.Add(shell);
             Locations[4].Items.Add(LargeCrab);
 
-            //5
+            // 5.) Deeper in Makua Cave
             Locations[5].Items.Add(new PortableHidingPlace("Lunch Box", 2, new InventoryItem("Can of Tuna")));
             InventoryItem flashlight = new InventoryItem("Old Flashlight");
             InventoryItem Skeleto = new InventoryItem("Human Skeleton"); // Not portable
@@ -177,31 +160,54 @@ namespace TextBasedAdventureGame
             InventoryItem crab2 = new InventoryItem("Crab");
             
             Locations[5].Items.Add(flashlight);
+            Locations[5].Items.Add(Skeleto);
             Locations[5].Items.Add(crab2);
 
-            //6
-            InventoryItem BottMess = new InventoryItem("Message in a bottle");
-            InventoryItem Trs = new InventoryItem("Trash");
-            InventoryItem SrfBd = new InventoryItem("Surf Board with Shark bite");
-            SrfBd.Size = 5;
+            // 6.) Albuquerque International Airport
+            PortableHidingPlace Wallet = new PortableHidingPlace("Wallet",1,
+                new InventoryItem("$500 Cash"));
+            InventoryItem Coin = new InventoryItem("Egyptian Coin");
+            InventoryItem trash = new InventoryItem("Crumbled Piece of Paper");
             
-            Locations[6].Items.Add(BottMess);
-            Locations[6].Items.Add(Trs);
-            Locations[6].Items.Add(SrfBd);
+            
+            Locations[6].Items.Add(Wallet);
+            Locations[6].Items.Add(Coin);
+            Locations[6].Items.Add(trash);
 
-            //7
-            HidingPlace LargeRock = new HidingPlace("Large Rock");
-            LargeRock.HiddenObject = new InventoryItem("Gold piece");
-            Locations[7].Items.Add(LargeRock);
+            // 7.) JFK International Airport
+            PortableHidingPlace Watch = new PortableHidingPlace(
+                "Watch", 1, new InventoryItem("A USB drive"));
+            InventoryItem ticket = new InventoryItem("Old Plane Ticket");
+            InventoryItem photo = new InventoryItem("Old Photo");
+            Locations[7].Items.Add(Watch);
+            Locations[7].Items.Add(ticket);
+            Locations[7].Items.Add(photo);
 
-            //8         
-            Locations[8].Items.Add(new InventoryItem("a homeade metal helmet full of holes with 'Ned Kelly' engraved"));
+            // 8.) In Manhattan   
+            InventoryItem Pen = new InventoryItem("Pen");
+            InventoryItem tickets = new InventoryItem("2 Broadway Play Tickets");
+            PortableHidingPlace Bottle = new PortableHidingPlace("Message in a Coke Bottle", 2,
+                new InventoryItem("Letter to Julia"));
+            InventoryItem helmet = new InventoryItem("a homeade metal helmet full of holes with 'Ned Kelly' engraved");
+            
+            Locations[8].Items.Add(Pen);
+            Locations[8].Items.Add(tickets);
+            Locations[8].Items.Add(Bottle);
+            Locations[8].Items.Add(helmet);
 
-            //9
-            Locations[9].Items.Add(new InventoryItem("Take home Pizza"));
-
+            // 9.) Touring Manhattan
+            HidingPlace Boulder = new HidingPlace("Boulder");
+            Boulder.HiddenObject = new InventoryItem("I Love New York Keychain");
+            InventoryItem map = new InventoryItem("Treasure Map");
+            InventoryItem shovel = new InventoryItem("Collapsible Shovel");
+            shovel.Size = 4;
+            
+            Locations[9].Items.Add(Boulder);
+            Locations[9].Items.Add(map);
+            Locations[9].Items.Add(shovel);
 
             #endregion
+
             #region  Old Travel Options
             ////Now add travel options to each map location
 

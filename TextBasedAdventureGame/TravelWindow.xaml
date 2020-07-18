@@ -1,21 +1,23 @@
 ﻿<Window x:Class="TextBasedAdventureGame.TravelWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="The Adventures of The Travelling CNM Attend Anywhere Student" Height="600" Width="820" Icon="6932f8af-90b2-41cc-b743-6ea0d97116db.jpeg">
+        Title="The Adventures of The Travelling CNM Attend Anywhere Student" Height="700" Width="820" Icon="6932f8af-90b2-41cc-b743-6ea0d97116db.jpeg">
     <Grid>
-        <TextBlock x:Name="txbLocationDescription" HorizontalAlignment="Left" Height="54" Margin="33,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="461"/>
-        <ListBox x:Name="lbTraveOptions" HorizontalAlignment="Left" Height="100" Margin="33,289,0,0" VerticalAlignment="Top" Width="322" MouseDoubleClick="lbTraveOptions_MouseDoubleClick"/>
-        <Label Content="Click on an option to travel in that direction:" HorizontalAlignment="Left" Margin="22,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385"/>
-        <Label Content="Location Description:" HorizontalAlignment="Left" Margin="22,22,0,0" VerticalAlignment="Top"/>
-        <Label Content="Select an item to take or search" HorizontalAlignment="Left" Margin="22,118,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="lbItemTakeSearch" HorizontalAlignment="Left" Height="100" Margin="33,150,0,0" VerticalAlignment="Top" Width="322" MouseDown="lbItemTakeSearch_buttonPress"/>
-        <ListBox x:Name="lbItemDrop" HorizontalAlignment="Left" Height="240" Margin="498,150,0,0" VerticalAlignment="Top" Width="264"/>
-        <Label Content="Invetory: Select item to drop" HorizontalAlignment="Left" Margin="498,118,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="393,164,0,0" VerticalAlignment="Top" Width="74" Click="btnSearch_Click"/>
-        <Button x:Name="btnTake" Content="Take--&gt;" HorizontalAlignment="Left" Margin="393,189,0,0" VerticalAlignment="Top" Width="74" Click="btnTake_Click"/>
-        <Button x:Name="btnDrop" Content="&lt;--Drop" HorizontalAlignment="Left" Margin="393,214,0,0" VerticalAlignment="Top" Width="74" Click="btnDrop_Click"/>
-        <Label Content="Game Status" HorizontalAlignment="Left" Margin="22,408,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385"/>
-        <ListBox x:Name="lbGameStatus" HorizontalAlignment="Left" Height="100" Margin="33,439,0,0" VerticalAlignment="Top" Width="729"/>
+        <TextBlock x:Name="txbLocationDescription" HorizontalAlignment="Left" Height="54" Margin="17,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
+        <ListBox x:Name="lbTraveOptions" HorizontalAlignment="Left" Height="100" Margin="15,383,0,0" VerticalAlignment="Top" Width="342" MouseDoubleClick="lbTraveOptions_MouseDoubleClick"/>
+        <Label Content="Click on an option to travel in that direction:" HorizontalAlignment="Left" Margin="12,352,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385" Width="255" FontWeight="Bold"/>
+        <Label Content="Location Description:" HorizontalAlignment="Left" Margin="12,140,0,0" VerticalAlignment="Top" Width="130" FontWeight="Bold"/>
+        <Label Content="Select an item to take or search" HorizontalAlignment="Left" Margin="12,212,0,0" VerticalAlignment="Top" Width="184" FontWeight="Bold"/>
+        <ListBox x:Name="lbItemTakeSearch" HorizontalAlignment="Left" Height="100" Margin="15,244,0,0" VerticalAlignment="Top" Width="342"/>
+        <ListBox x:Name="lbItemDrop" HorizontalAlignment="Left" Height="240" Margin="512,244,0,0" VerticalAlignment="Top" Width="276"/>
+        <Label Content="Inventory: Select item to drop" HorizontalAlignment="Left" Margin="512,212,0,0" VerticalAlignment="Top" Width="167" FontWeight="Bold"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="402,258,0,0" VerticalAlignment="Top" Width="78" Click="btnSearch_Click" FontWeight="Bold"/>
+        <Button x:Name="btnTake" Content="Take--&gt;" HorizontalAlignment="Left" Margin="402,283,0,0" VerticalAlignment="Top" Width="78" Click="btnTake_Click" FontWeight="Bold"/>
+        <Button x:Name="btnDrop" Content="&lt;--Drop" HorizontalAlignment="Left" Margin="402,308,0,0" VerticalAlignment="Top" Width="78" Click="btnDrop_Click" FontWeight="Bold"/>
+        <Label Content="Game Status" HorizontalAlignment="Left" Margin="12,502,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385" Width="81" FontWeight="Bold"/>
+        <ListBox x:Name="lbGameStatus" HorizontalAlignment="Left" Height="100" Margin="15,533,0,0" VerticalAlignment="Top" Width="773"/>
+        <Image HorizontalAlignment="Left" Height="98" Margin="26,23,0,0" VerticalAlignment="Top" Width="289" Source="1512149015708.png"/>
+        <Label Content="         The CNM Attend &#xD;&#xA;Anywhere Traveling Student" HorizontalAlignment="Center" Margin="297,29,24,0" Height="92" Width="491" FontFamily="Times New Roman" FontSize="36" VerticalAlignment="Top" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
