@@ -258,8 +258,6 @@ namespace TextBasedAdventureGame
             lbTraveOptions.Items.Refresh();
             txbLocationDescription.Text = game.PlayerLocation.Description;
             lbItemDrop.Items.Refresh();
-            // lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
-           // lbItemTakeSearch.Items.Refresh();
         }
 
         // Clear Game Status
