@@ -140,8 +140,7 @@ namespace TextBasedAdventureGame
 
 
             //2
-            HidingPlace Purse = new HidingPlace("Purse");
-            Purse.HiddenObject = new InventoryItem("Knife");
+            PortableHidingPlace Purse = new PortableHidingPlace("Purse",1,new InventoryItem("Knife"));
             InventoryItem Shell = new InventoryItem("Conch Shell");
             InventoryItem Crab = new InventoryItem("Crab");
 
@@ -151,7 +150,7 @@ namespace TextBasedAdventureGame
 
             //3
             HidingPlace MetalBox = new HidingPlace("MetalBox");
-            Purse.HiddenObject = new InventoryItem("Bone");
+            
             InventoryItem Chip = new InventoryItem("Bellagio Casino Chip");
             InventoryItem crab = new InventoryItem("Crab");
             

@@ -94,7 +94,8 @@ namespace TextBasedAdventureGame
                 else if(CheckType(lbItemTakeSearch.SelectedItem)==3)
                 {
                     PortableHidingPlace portHiding = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
-                    game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = portHiding.HiddenObject;
+                    game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = portHiding.Search();
+                    lbItemTakeSearch.Items.Refresh();
                 }
                 ClearGameStatus();
                 UpdateDisplay();
@@ -200,9 +201,14 @@ namespace TextBasedAdventureGame
                         {
                             game.PlayerLocation.Items.Remove(Invitem);
                             lbItemTakeSearch.Items.Refresh();
-                            //player.AddInventoryItem(item);
+                            ClearGameStatus();
                         }
-                        ClearGameStatus();
+                        else
+                        {
+                            ClearGameStatus();
+                            lbGameStatus.Items.Add(new InventoryItem("You've reached the maximum of your inventory limit"));
+                        }
+                        
                         break;
                     case 2:
                         ClearGameStatus();
@@ -229,7 +235,12 @@ namespace TextBasedAdventureGame
                         //if(player.Inventory != null)
                         //{
 
-                        if (player.AddInventoryItem((InventoryItem)Portitem.HiddenObject))
+                        if (player.AddInventoryItem(Portitem))
+                        {
+                            game.PlayerLocation.Items.Remove(Portitem);
+                            lbItemTakeSearch.Items.Refresh();
+                        }
+                        else if (player.AddInventoryItem((InventoryItem)Portitem.HiddenObject))
                         {
                             game.PlayerLocation.Items.Remove(Portitem);
                             lbItemTakeSearch.Items.Refresh();
@@ -272,9 +283,20 @@ namespace TextBasedAdventureGame
 
         private void btnDrop_Click(object sender, RoutedEventArgs e)
         {
-            Invitem = (InventoryItem)lbItemDrop.SelectedItem;
-            player.RemoveInventoryItem(Invitem);
-            game.PlayerLocation.Items.Add(Invitem);
+            if(CheckType(lbItemDrop.SelectedItem) == 3)
+            {
+                Portitem = (PortableHidingPlace)lbItemDrop.SelectedItem;
+                player.RemoveInventoryItem(Portitem);
+                game.PlayerLocation.Items.Add(Portitem);
+            }
+            else 
+            {
+                Invitem = (InventoryItem)lbItemDrop.SelectedItem;
+                player.RemoveInventoryItem(Invitem);
+                game.PlayerLocation.Items.Add(Invitem);
+            }
+            
+            
             ClearGameStatus();
             lbItemTakeSearch.Items.Refresh();
             UpdateDisplay();

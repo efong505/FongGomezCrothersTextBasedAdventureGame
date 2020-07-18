@@ -23,9 +23,9 @@ namespace TextBasedAdventureGame
         // TODO: Need to figure this out - how to return hiddenObject and then set it to null
         public GameObject Search()
         {
-            GameObject Temp = new GameObject("");
-            Temp = HiddenObject;           
-            
+            _ = new GameObject("");
+            GameObject Temp = HiddenObject;
+
             HiddenObject = null;
             
             return Temp;

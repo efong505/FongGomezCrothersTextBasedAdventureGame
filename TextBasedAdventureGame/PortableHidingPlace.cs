@@ -14,10 +14,12 @@ namespace TextBasedAdventureGame
         private GameObject hiddenObject;
 
         // TODO: check to make sure number of parameters for constructor is correct
-        public PortableHidingPlace(string description, int size, GameObject inventoryItem) : base(description)
+        public PortableHidingPlace(string description, int size, InventoryItem inventoryItem) : base(description)
         {
             Description = description;
             Size = size;
+            //HiddenObject = null;
+            //HiddenObject = inventoryItem;
             HiddenObject = inventoryItem;
             
         }
@@ -27,17 +29,18 @@ namespace TextBasedAdventureGame
         public GameObject HiddenObject
         {
             get => hiddenObject;
-            set { hiddenObject = value; Search(); }
+            set { hiddenObject = value;  }
         }
         //private GameObject item;
 
         public GameObject Search()
         {
-            ////GameObject searched;
+            _ = new GameObject("");
+            GameObject Temp = HiddenObject;
 
-            //searched = HiddenObject;
-            ////hiddenObject = null;
-            return HiddenObject;
+            HiddenObject = null;
+
+            return Temp;
         }
     }
 }
