@@ -10,7 +10,7 @@
         <Label Content="Select an item to take or search" HorizontalAlignment="Left" Margin="12,212,0,0" VerticalAlignment="Top" Width="184" FontWeight="Bold"/>
         <ListBox x:Name="lbItemTakeSearch" HorizontalAlignment="Left" Height="100" Margin="15,244,0,0" VerticalAlignment="Top" Width="342"/>
         <ListBox x:Name="lbItemDrop" HorizontalAlignment="Left" Height="240" Margin="512,244,0,0" VerticalAlignment="Top" Width="276"/>
-        <Label Content="Inventory: Select item to drop" HorizontalAlignment="Left" Margin="512,212,0,0" VerticalAlignment="Top" Width="167" FontWeight="Bold"/>
+        <Label Content="Inventory: Select item to drop" HorizontalAlignment="Left" Margin="512,212,0,0" VerticalAlignment="Top" Width="255" FontWeight="Bold"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Margin="402,258,0,0" VerticalAlignment="Top" Width="78" Click="btnSearch_Click" FontWeight="Bold"/>
         <Button x:Name="btnTake" Content="Take--&gt;" HorizontalAlignment="Left" Margin="402,283,0,0" VerticalAlignment="Top" Width="78" Click="btnTake_Click" FontWeight="Bold"/>
         <Button x:Name="btnDrop" Content="&lt;--Drop" HorizontalAlignment="Left" Margin="402,308,0,0" VerticalAlignment="Top" Width="78" Click="btnDrop_Click" FontWeight="Bold"/>
