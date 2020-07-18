@@ -15,16 +15,19 @@ namespace TextBasedAdventureGame
     /// </summary>
     public class TravelOption
     {
+        // Description Property
         /// <summary>
         /// Text description of where this travel option goes to.
         /// </summary>
         public string Description { get; set; }
 
+        // Location Property
         /// <summary>
         /// Reference to location this travel option goes to.
         /// </summary>
         public MapLocation Location { get; set; }
 
+        // Two Parameter constructor
         /// <summary>
         /// Two param constructor
         /// </summary>
@@ -36,6 +39,13 @@ namespace TextBasedAdventureGame
             Location = location;
         }
 
+        // return Description
+        /// <summary>
+        /// Overriden ToString()
+        /// </summary>
+        /// <returns>
+        /// Returns Description
+        /// </returns>
         public override string ToString()
         {
             return Description;

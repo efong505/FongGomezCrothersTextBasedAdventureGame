@@ -11,14 +11,27 @@ namespace TextBasedAdventureGame
 {
     public class GameObject
     {
-        public  string Description { get; set; }
+        // Description Property
+        /// <summary>
+        /// Description Property
+        /// </summary>
+        public  virtual string Description { get; set; }
         public GameObject(string description) 
         {
             Description = description;
         }
 
+        // GameObject Constructor
+        /// <summary>
+        /// GameObject Constructor
+        /// </summary>
         public GameObject() : this("TBD") { }
 
+        // Overriden ToString()
+        /// <summary>
+        /// Overriden ToString()
+        /// </summary>
+        /// <returns>Returns Description</returns>
         public override string ToString()
         {
             return Description;

@@ -8,31 +8,41 @@ namespace TextBasedAdventureGame
 {
     public class PortableHidingPlace : GameObject, IPortable, IHidingPlace
     {
-        
-        //private int v;
-       // private InventoryItem inventoryItem;
-        private GameObject hiddenObject;
 
-        // TODO: check to make sure number of parameters for constructor is correct
+        // Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="description">Description of object</param>
+        /// <param name="size">Size of Object Created</param>
+        /// <param name="inventoryItem">Hidden Object</param>
         public PortableHidingPlace(string description, int size, InventoryItem inventoryItem) : base(description)
         {
             Description = description;
             Size = size;
-            //HiddenObject = null;
-            //HiddenObject = inventoryItem;
             HiddenObject = inventoryItem;
             
         }
        
-
+        // Size Property
+        /// <summary>
+        /// Size Property
+        /// </summary>
         public int Size { get; set ; }
-        public GameObject HiddenObject
-        {
-            get => hiddenObject;
-            set { hiddenObject = value;  }
-        }
-        //private GameObject item;
+        
+        // Hidden Object Property
+        /// <summary>
+        /// Hidden Object Property
+        /// </summary>
+        public GameObject HiddenObject { get; set; }
 
+        // Search Meethod 
+        /// <summary>
+        /// Search Method
+        /// </summary>
+        /// <returns>
+        /// Returns Hidden Object and then sets HiddenObject to null
+        /// </returns>
         public GameObject Search()
         {
             _ = new GameObject("");

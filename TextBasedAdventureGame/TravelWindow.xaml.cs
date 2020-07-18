@@ -208,9 +208,6 @@ namespace TextBasedAdventureGame
                         }
                         ClearGameStatus();
                         break;
-                        //case 4:
-                        //    lbGameStatus.Items.Add(new InventoryItem("Item is not portable"));
-                        //    break;
                 }
             }
             else
@@ -218,33 +215,21 @@ namespace TextBasedAdventureGame
                 ClearGameStatus();
                 lbGameStatus.Items.Add(new InventoryItem("Item is not portable"));
             }
-            //lbItemDrop.ItemsSource = player.Inventory;
-
-            //item = (InventoryItem)lbItemTakeSearch.SelectedItem;
-            ////if(player.Inventory != null)
-            ////{
-            //    if (player.AddInventoryItem(item))
-            //    {
-            //    game.PlayerLocation.Items.Remove(item);
-            //    lbItemTakeSearch.Items.Refresh();    
-            //        //player.AddInventoryItem(item);
-            //    }
-
-            //}
-
-
 
             lbItemDrop.Items.Refresh();
             lbItemTakeSearch.Items.Refresh();
-            //GameObject selectobject = new GameObject();
-            //selectobject.Description = lbItemTakeSearch.SelectedItem.ToString();
-            //// game.PlayerLocation.
             UpdateDisplay();
         }
 
+        // Remove from player inventory and drop at location
+        /// <summary>
+        /// Remove from player inventory and drop at location
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDrop_Click(object sender, RoutedEventArgs e)
         {
-            if(CheckType(lbItemDrop.SelectedItem) == 3)
+            if(CheckType(lbItemDrop.SelectedItem) == 3) // PortabalHidingPlace 
             {
                 Portitem = (PortableHidingPlace)lbItemDrop.SelectedItem;
                 player.RemoveInventoryItem(Portitem);
@@ -252,17 +237,21 @@ namespace TextBasedAdventureGame
             }
             else 
             {
+                // InventoryItem
                 Invitem = (InventoryItem)lbItemDrop.SelectedItem;
                 player.RemoveInventoryItem(Invitem);
                 game.PlayerLocation.Items.Add(Invitem);
             }
-            
-            
+            //update screen
             ClearGameStatus();
             lbItemTakeSearch.Items.Refresh();
             UpdateDisplay();
         }
 
+        // Update display method
+        /// <summary>
+        /// Update display method
+        /// </summary>
         private void UpdateDisplay()
         {
             //lbItemTakeSearch.Items.Refresh();
@@ -273,6 +262,10 @@ namespace TextBasedAdventureGame
            // lbItemTakeSearch.Items.Refresh();
         }
 
+        // Clear Game Status
+        /// <summary>
+        /// Clear Game Status 
+        /// </summary>
         private void ClearGameStatus()
         {
             if (!lbGameStatus.Items.IsEmpty)

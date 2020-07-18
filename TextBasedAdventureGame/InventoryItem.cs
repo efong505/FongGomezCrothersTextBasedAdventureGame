@@ -8,14 +8,23 @@ using System.Text;
 
 namespace TextBasedAdventureGame
 {
-    public class InventoryItem : GameObject, IPortable
+    public class InventoryItem : GameObject, IPortable // inherits from GameObject and IPortable Interface
     {
+        // Constructor
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="description">Description inherited from GameObject</param>
         public InventoryItem(string description):base(description)
         {
             Description = description;
             Size = 1;
         }
 
+        // Size Property
+        /// <summary>
+        /// Size Property
+        /// </summary>
         public int Size { get; set; }
     }
 }
