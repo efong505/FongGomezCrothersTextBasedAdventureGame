@@ -79,6 +79,7 @@ namespace TextBasedAdventureGame
         public void RemoveInventoryItem(IPortable item)
         {
             Inventory.Remove(item);
+            Size -= item.Size;
             Calc();
         }
 

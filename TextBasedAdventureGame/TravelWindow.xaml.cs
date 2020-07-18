@@ -24,12 +24,15 @@ namespace TextBasedAdventureGame
     /// </summary>
     public partial class TravelWindow : Window
     {
-        InventoryItem item;
+        InventoryItem Invitem;
+        HidingPlace Hidingitem;
+        PortableHidingPlace Portitem;
         /// <summary>
         /// Game object that has map
         /// </summary>
         Map game;
         Player player;
+
 
         /// <summary>
         /// Initialize the form, the game and call display location to start the form.
@@ -40,9 +43,13 @@ namespace TextBasedAdventureGame
             game = new Map();
             player = new Player(game.PlayerLocation);
             lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
-            item = new InventoryItem("Pocket Lint");
+            Invitem = new InventoryItem("Pocket Lint");
+            Hidingitem = new HidingPlace(Invitem.Description);
+            Portitem = new PortableHidingPlace("Pocket Lint", 1, Invitem);
+            Invitem = new InventoryItem("Pocket Lint");
             DisplayLocation();
-            
+
+
         }
 
         /// <summary>
@@ -53,7 +60,7 @@ namespace TextBasedAdventureGame
             txbLocationDescription.Text = game.PlayerLocation.Description;
             lbTraveOptions.ItemsSource = game.PlayerLocation.TravelOptions;
             lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
-           
+
 
         }
 
@@ -67,7 +74,7 @@ namespace TextBasedAdventureGame
             TravelOption to = (TravelOption)lbTraveOptions.SelectedItem;
             game.PlayerLocation = to.Location;
             DisplayLocation();
-           // UpdateDisplay();
+            // UpdateDisplay();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -76,7 +83,7 @@ namespace TextBasedAdventureGame
 
             //TODO: Determine type of game object 
             //TODO: Once determined then do if/else or switch for each type
-             //attribute = lbItemTakeSearch.SelectedItem.GetType();
+            //attribute = lbItemTakeSearch.SelectedItem.GetType();
 
             //if (lbItemTakeSearch.SelectedItem.GetType() == PortableHidingPlace)
             //{
@@ -95,33 +102,114 @@ namespace TextBasedAdventureGame
             //InventoryItem test = new InventoryItem("Testing");
             //test.Size = 21;
             //Testing = player.AddInventoryItem(test);
-            
+
         }
 
         private void lbItemTakeSearch_buttonPress(object sender, MouseButtonEventArgs e)
         {
             //if(player.AddInventoryItem())
         }
+        // check if object is Portable
+        private bool isIPortable(object obj)
+        {
+            if (obj is IPortable)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+        // check which portable type object is
+        public int CheckType(object obj)
+        {
+            if (obj is InventoryItem)
+                return 1;
+            else if (obj is HidingPlace)
+                return 2;
+            else if (obj is PortableHidingPlace)
+                return 3;
+            else return 4;
+        }
+
+
 
         private void btnTake_Click(object sender, RoutedEventArgs e)
         {
-           
-            
-            lbItemDrop.ItemsSource = player.Inventory;
-            item = (InventoryItem)lbItemTakeSearch.SelectedItem;
-            //if(player.Inventory != null)
-            //{
-                if (player.AddInventoryItem(item))
+            if (isIPortable(lbItemTakeSearch.SelectedItem))
+            {
+                CheckType(lbItemTakeSearch.SelectedItem);
+                int type = CheckType(lbItemTakeSearch.SelectedItem);
+                switch (type)
                 {
-                game.PlayerLocation.Items.Remove(item);
-                lbItemTakeSearch.Items.Refresh();    
-                    //player.AddInventoryItem(item);
-                }
-                
-            //}
-          
+                    case 1:
+                        lbItemDrop.ItemsSource = player.Inventory;
 
-           
+                        Invitem = (InventoryItem)lbItemTakeSearch.SelectedItem;
+                        //if(player.Inventory != null)
+                        //{
+                        if (player.AddInventoryItem(Invitem))
+                        {
+                            game.PlayerLocation.Items.Remove(Invitem);
+                            lbItemTakeSearch.Items.Refresh();
+                            //player.AddInventoryItem(item);
+                        }
+                        ClearGameStatus();
+                        break;
+                    case 2:
+                        lbItemDrop.ItemsSource = player.Inventory;
+
+                        Hidingitem = (HidingPlace)lbItemTakeSearch.SelectedItem;
+                        //if(player.Inventory != null)
+                        //{
+
+                        if (player.AddInventoryItem((InventoryItem)Hidingitem.HiddenObject))
+                        {
+                            game.PlayerLocation.Items.Remove(Hidingitem);
+                            lbItemTakeSearch.Items.Refresh();
+                            //player.AddInventoryItem(item);
+                        }
+
+                        ClearGameStatus();
+                        break;
+                    case 3:
+                        lbItemDrop.ItemsSource = player.Inventory;
+
+                        Portitem = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
+                        //if(player.Inventory != null)
+                        //{
+
+                        if (player.AddInventoryItem((InventoryItem)Portitem.HiddenObject))
+                        {
+                            game.PlayerLocation.Items.Remove(Portitem);
+                            lbItemTakeSearch.Items.Refresh();
+                        }
+                        ClearGameStatus();
+                        break;
+                        //case 4:
+                        //    lbGameStatus.Items.Add(new InventoryItem("Item is not portable"));
+                        //    break;
+                }
+            }
+            else
+            {
+                lbGameStatus.Items.Add(new InventoryItem("Item is not portable"));
+            }
+            //lbItemDrop.ItemsSource = player.Inventory;
+
+            //item = (InventoryItem)lbItemTakeSearch.SelectedItem;
+            ////if(player.Inventory != null)
+            ////{
+            //    if (player.AddInventoryItem(item))
+            //    {
+            //    game.PlayerLocation.Items.Remove(item);
+            //    lbItemTakeSearch.Items.Refresh();    
+            //        //player.AddInventoryItem(item);
+            //    }
+
+            //}
+
+
+
             lbItemDrop.Items.Refresh();
             lbItemTakeSearch.Items.Refresh();
             //GameObject selectobject = new GameObject();
@@ -132,9 +220,10 @@ namespace TextBasedAdventureGame
 
         private void btnDrop_Click(object sender, RoutedEventArgs e)
         {
-            item = (InventoryItem)lbItemDrop.SelectedItem;
-            player.RemoveInventoryItem(item);
-            game.PlayerLocation.Items.Add(item);
+            Invitem = (InventoryItem)lbItemDrop.SelectedItem;
+            player.RemoveInventoryItem(Invitem);
+            game.PlayerLocation.Items.Add(Invitem);
+            ClearGameStatus();
             lbItemTakeSearch.Items.Refresh();
             UpdateDisplay();
         }
@@ -145,8 +234,64 @@ namespace TextBasedAdventureGame
             lbTraveOptions.Items.Refresh();
             txbLocationDescription.Text = game.PlayerLocation.Description;
             lbItemDrop.Items.Refresh();
-           // lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
+            // lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
 
         }
+
+        private void ClearGameStatus()
+        {
+            if (!lbGameStatus.Items.IsEmpty)
+                lbGameStatus.Items.Clear();
+        }
+        #region Other Checker
+        //// Check with object type and then 
+        //public void Checker(object obj)
+        //{
+        //    if (obj is InventoryItem)
+        //    {
+        //        lbItemDrop.ItemsSource = player.Inventory;
+
+        //        Invitem = (InventoryItem)lbItemTakeSearch.SelectedItem;
+        //        //if(player.Inventory != null)
+        //        //{
+        //        if (player.AddInventoryItem(Invitem))
+        //        {
+        //            game.PlayerLocation.Items.Remove(Invitem);
+        //            lbItemTakeSearch.Items.Refresh();
+        //            //player.AddInventoryItem(item);
+        //        }
+        //    }
+        //    else if (obj is HidingPlace)
+        //    {
+        //        lbItemDrop.ItemsSource = player.Inventory;
+
+        //        Hidingitem = (HidingPlace)lbItemTakeSearch.SelectedItem;
+        //        //if(player.Inventory != null)
+        //        //{
+
+        //        if (player.AddInventoryItem((InventoryItem)Hidingitem.HiddenObject))
+        //        {
+        //            game.PlayerLocation.Items.Remove(Hidingitem);
+        //            lbItemTakeSearch.Items.Refresh();
+        //            //player.AddInventoryItem(item);
+        //        }
+        //    }
+        //    else if (obj is PortableHidingPlace)
+        //    {
+        //        lbItemDrop.ItemsSource = player.Inventory;
+
+        //        Portitem = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
+        //        //if(player.Inventory != null)
+        //        //{
+
+        //        if (player.AddInventoryItem((InventoryItem)Portitem.HiddenObject))
+        //        {
+        //            game.PlayerLocation.Items.Remove(Portitem);
+        //            lbItemTakeSearch.Items.Refresh();
+        //        }
+        //    }
+        //}
+        #endregion  
     }
+
 }

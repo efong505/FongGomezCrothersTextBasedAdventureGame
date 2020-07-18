@@ -21,6 +21,7 @@ namespace TextBasedAdventureGame
             HiddenObject = inventoryItem;
             
         }
+       
 
         public int Size { get; set ; }
         public GameObject HiddenObject

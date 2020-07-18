@@ -143,6 +143,7 @@ namespace TextBasedAdventureGame
 
             //1
             InventoryItem LrgRock = new InventoryItem("Large Rock");
+            LrgRock.Size = 20; //TODO: Size doesn't trigger unportable. Need to figure out why additem bool not working
             HidingPlace SeaShell  = new HidingPlace("Sea Shell");
             SeaShell.HiddenObject = new InventoryItem("Gold Coin");
             Locations[1].Items.Add(LrgRock);
@@ -178,6 +179,7 @@ namespace TextBasedAdventureGame
 
             //4
             HidingPlace TikiStatue = new HidingPlace("Tiki Statue");
+            
             TikiStatue.HiddenObject = new InventoryItem("Large Rare Diamond");
             InventoryItem LargeCrab = new InventoryItem("A Larger Crab");
             InventoryItem shell = new InventoryItem("Conch Shell");
@@ -197,9 +199,14 @@ namespace TextBasedAdventureGame
             Locations[5].Items.Add(crab2);
 
             //6
-            Locations[6].Items.Add(new InventoryItem("Message in a bottle"));
-            Locations[6].Items.Add(new InventoryItem("Trash"));
-            Locations[6].Items.Add(new InventoryItem("Surf Board with Shark bite"));
+            InventoryItem BottMess = new InventoryItem("Message in a bottle");
+            InventoryItem Trs = new InventoryItem("Trash");
+            InventoryItem SrfBd = new InventoryItem("Surf Board with Shark bite");
+            SrfBd.Size = 5;
+            
+            Locations[6].Items.Add(BottMess);
+            Locations[6].Items.Add(Trs);
+            Locations[6].Items.Add(SrfBd);
 
             //7
             HidingPlace LargeRock = new HidingPlace("Large Rock");

@@ -10,7 +10,7 @@
   <Class Name="TextBasedAdventureGame.TravelWindow">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAAAAAAAQAAAAAAAAAAApAAAAAAAAAAA=</HashCode>
+      <HashCode>AAhAQAAAAAAAAAAAAEAQAAAAAAAAAQApCIABAAAQQAA=</HashCode>
       <FileName>TravelWindow.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -53,7 +53,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="TextBasedAdventureGame.PortableHidingPlace">
-    <Position X="4.75" Y="4" Width="2.25" />
+    <Position X="4.75" Y="3.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAgAAAAIAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
       <FileName>PortableHidingPlace.cs</FileName>
@@ -63,9 +63,10 @@
   <Class Name="TextBasedAdventureGame.Player">
     <Position X="9.75" Y="3.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAEAAJAgAACAAIAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>AAAAAgAEAAJAgAACAAIAAAAAAAAAAAAAAAAAAgAAAgA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="TextBasedAdventureGame.IPortable">
     <Position X="2.75" Y="2.75" Width="1.5" />
