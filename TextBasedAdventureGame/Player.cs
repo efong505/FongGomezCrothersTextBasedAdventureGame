@@ -16,12 +16,17 @@ namespace TextBasedAdventureGame
         /// static int maxInventory field
         /// </summary>
         public static int maxInventory = 6;
+        
+        // size of Player's Inventory
         /// <summary>
-        /// Size Property
+        /// Size Property of Player's Inventory
         /// </summary>
         public int Size { get; set; }
+
+        // Maplocation property
         /// <summary>
         /// MapLocation Location Property
+        /// Location of player
         /// </summary>
         public MapLocation Location { get; set; }
         
@@ -34,7 +39,7 @@ namespace TextBasedAdventureGame
         /// </summary>
         public List<GameObject> GameObjects { get; set; }
         
-
+        // Player's Portable Inventory 
         /// <summary>
         /// Inventory IPortable Property
         /// </summary>
@@ -42,17 +47,20 @@ namespace TextBasedAdventureGame
        
 
         /// <summary>
-        /// Calculate the size of the objects in the Inventory
+        /// Calculate the number of slots the Objects in the player's 
+        /// inventory is taking up
         /// </summary>
         public void Calc()
         {
-            
+            Size = 0; // Reset the Size so that can count the current number 
             for (int count = 0; count < Inventory.Count; count++)
             {
-                Size += Inventory[count].Size;
+                
+                Size += Inventory[count].Size; // Check each item's Size and add it to total Size
                 
             }
         }
+
         /// <summary>
         /// Check if MaxInventory reached. If not then add object into 
         /// 
@@ -92,13 +100,7 @@ namespace TextBasedAdventureGame
             Inventory = new List<IPortable>(); 
              
             
-            
-
-            //for(int items = 0;items < GameObjects.Count; items++)
-            //{
-            //    Description = GameObjects[items].Description;
-            //}
-            //Description = GameObjects[0].Description;
+             
         }
     }
 }

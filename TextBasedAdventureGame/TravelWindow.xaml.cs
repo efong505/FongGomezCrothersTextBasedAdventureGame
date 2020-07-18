@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -79,6 +80,30 @@ namespace TextBasedAdventureGame
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
+
+            if (CheckType(lbItemTakeSearch.SelectedItem) != 1)
+            {
+                if(CheckType(lbItemTakeSearch.SelectedItem)== 2)
+                {
+                    HidingPlace hiding = (HidingPlace)lbItemTakeSearch.SelectedItem;
+                    game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] =  hiding.Search();
+                    lbItemTakeSearch.Items.Refresh();
+                    //UpdateDisplay();
+                }
+
+                else if(CheckType(lbItemTakeSearch.SelectedItem)==3)
+                {
+                    PortableHidingPlace portHiding = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
+                    game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = portHiding.HiddenObject;
+                }
+                ClearGameStatus();
+                UpdateDisplay();
+            }
+            else
+            {
+                ClearGameStatus();
+                lbGameStatus.Items.Add(new InventoryItem("Not a hiding object"));
+            }
             //game.PlayerLocation.HiddenObjects = game.PlayerLocation.HiddenObjects; 
 
             //TODO: Determine type of game object 
@@ -90,8 +115,8 @@ namespace TextBasedAdventureGame
             //    attribute to = (attribute)lbItemTakeSearch.SelectedItem;
             //}
 
-            PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
-            game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = to.HiddenObject;
+            //PortableHidingPlace to = (PortableHidingPlace)lbItemTakeSearch.SelectedItem;
+            //game.PlayerLocation.Items[lbItemTakeSearch.SelectedIndex] = to.HiddenObject;
             //lbItemTakeSearch.ItemsSource = game.PlayerLocation.HiddenObjects;
             //PortableHidingPlace to = (PortableHidingPlace)game.PlayerLocation.Items;
             //lbItemTakeSearch.ItemsSource = to.HiddenObject;
@@ -110,6 +135,12 @@ namespace TextBasedAdventureGame
             //if(player.AddInventoryItem())
         }
         // check if object is Portable
+        /// <summary>
+        /// Takes in GameObject Inventory, PortableHidingPlace, and Hiding Places Types and 
+        /// determines of not Portable returning true or false. 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True or false whether or not IPortable typed object</returns>
         private bool isIPortable(object obj)
         {
             if (obj is IPortable)
@@ -120,6 +151,14 @@ namespace TextBasedAdventureGame
                 return false;
         }
         // check which portable type object is
+        /// <summary>
+        /// Takes portable typed objects.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>
+        /// returns the type of game objects each are by index of 
+        /// 1-3.
+        /// </returns>
         public int CheckType(object obj)
         {
             if (obj is InventoryItem)
@@ -132,9 +171,19 @@ namespace TextBasedAdventureGame
         }
 
 
-
+        // Button click event
+        /// <summary>
+        /// Button click event allows user to select an item in the list box of take
+        /// and determine whether or not object is portable or not. 
+        /// if not portable return message in game result list box that object is not 
+        /// portable. If portable, determines which object type it is and then 
+        /// takes object and places them into the players inventory.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTake_Click(object sender, RoutedEventArgs e)
         {
+            // check if portable
             if (isIPortable(lbItemTakeSearch.SelectedItem))
             {
                 CheckType(lbItemTakeSearch.SelectedItem);
@@ -156,20 +205,22 @@ namespace TextBasedAdventureGame
                         ClearGameStatus();
                         break;
                     case 2:
-                        lbItemDrop.ItemsSource = player.Inventory;
-
-                        Hidingitem = (HidingPlace)lbItemTakeSearch.SelectedItem;
-                        //if(player.Inventory != null)
-                        //{
-
-                        if (player.AddInventoryItem((InventoryItem)Hidingitem.HiddenObject))
-                        {
-                            game.PlayerLocation.Items.Remove(Hidingitem);
-                            lbItemTakeSearch.Items.Refresh();
-                            //player.AddInventoryItem(item);
-                        }
-
                         ClearGameStatus();
+                        lbGameStatus.Items.Add(new InventoryItem("Item is not portable"));
+                        //lbItemDrop.ItemsSource = player.Inventory;
+
+                        //Hidingitem = (HidingPlace)lbItemTakeSearch.SelectedItem;
+                        ////if(player.Inventory != null)
+                        ////{
+
+                        //if (player.AddInventoryItem((InventoryItem)Hidingitem.HiddenObject))
+                        //{
+                        //    game.PlayerLocation.Items.Remove(Hidingitem);
+                        //    lbItemTakeSearch.Items.Refresh();
+                        //    //player.AddInventoryItem(item);
+                        //}
+
+
                         break;
                     case 3:
                         lbItemDrop.ItemsSource = player.Inventory;
@@ -192,6 +243,7 @@ namespace TextBasedAdventureGame
             }
             else
             {
+                ClearGameStatus();
                 lbGameStatus.Items.Add(new InventoryItem("Item is not portable"));
             }
             //lbItemDrop.ItemsSource = player.Inventory;
@@ -235,7 +287,7 @@ namespace TextBasedAdventureGame
             txbLocationDescription.Text = game.PlayerLocation.Description;
             lbItemDrop.Items.Refresh();
             // lbItemTakeSearch.ItemsSource = game.PlayerLocation.Items;
-
+           // lbItemTakeSearch.Items.Refresh();
         }
 
         private void ClearGameStatus()

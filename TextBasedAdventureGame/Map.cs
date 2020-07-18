@@ -114,29 +114,11 @@ namespace TextBasedAdventureGame
             #endregion
 
             #region Objects
-            // objects
-            //Locations[0].Items.Add(new InventoryItem("Token"));
-            //Locations[0].Items.Add(new InventoryItem("Brocken Rifle"));
-            //Locations[0].Items.Add(new HidingPlace("Ammo"));
-            //Locations[0].HiddenObjects.Add(new GameObject("GunPowder"));
-            //Locations[1].Items.Add(new PortableHidingPlace("Backpack", 1, new GameObject("Peanut Butter and " +
-            //    "Jelly Sandwich")));
-
-            // recenlty commented
-            //HidingPlace rock = new HidingPlace("Large Rock");
-            //rock.HiddenObject = new GameObject("Snow Globe");
-            //Locations[0].Items.Add(rock);
-            //Locations[2].Items.Add(new GameObject("Broken Chair"));
-            //Locations[2].Items.Add(new HidingPlace("Chair"));
-            //Locations[2].HiddenObjects.Add(new GameObject("Snake"));
             //0
-            //Locations[0].Items.Add(new InventoryItem("New York Travel Brochure"));
             InventoryItem brochure = new InventoryItem("New York Travel Brochure");
             brochure.Size = 1;
-            HidingPlace rock = new HidingPlace("Hollow Rock");
-            rock.HiddenObject = new InventoryItem("Key");
-            
-            
+            PortableHidingPlace rock = new PortableHidingPlace("Hollow Rock",1,
+                new InventoryItem("Key"));
             Locations[0].Items.Add(rock);
             Locations[0].Items.Add(brochure);
 
