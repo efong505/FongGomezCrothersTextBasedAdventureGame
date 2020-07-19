@@ -59,10 +59,13 @@ namespace TextBasedAdventureGame
             Locations.Add(new MapLocation("You are at the JFK International Airport in New York")); // location 7
             Locations.Add(new MapLocation("You are in Manhattan, New York"));// location 8
             Locations.Add(new MapLocation("You are Touring the Statue of Liberty, Central Park and the Empire State Building")); // location 9
+            
+            /* Added by Sergio 7-18-20 */
+            Locations.Add(new MapLocation("You are in Hawaii Deep Sea Fishing"));// location 10 
             #endregion
 
             #region New Travel Options
-            
+
             //In front of CNM Sign - 0
             Locations[0].TravelOptions.Add(new TravelOption("Jump in your car and drive west to San Diego Pier.", Locations[1]));
             Locations[0].TravelOptions.Add(new TravelOption("Take an Uber to the airport ", Locations[6]));
@@ -74,6 +77,7 @@ namespace TextBasedAdventureGame
             //In Honolulu Boat Harbor in front of Aloha Tower -2
             Locations[2].TravelOptions.Add(new TravelOption("A road from Honolulu leading west towards cave", Locations[3]));
             Locations[2].TravelOptions.Add(new TravelOption("A Cruise back to San Diego Pier", Locations[1]));
+            Locations[2].TravelOptions.Add(new TravelOption("Hire a Guide to Take you Deep Sea Fishing", Locations[10])); /* Added by Sergio 7-18-20 */
 
             //Standing in front of Makua Cave - 3
             Locations[3].TravelOptions.Add(new TravelOption("Walk into cave", Locations[4]));
@@ -102,6 +106,10 @@ namespace TextBasedAdventureGame
             Locations[9].TravelOptions.Add(new TravelOption("Walk back to subway and take subway back to JFK International Airport", Locations[7]));
             Locations[9].TravelOptions.Add(new TravelOption("Walk back to Manhattan", Locations[8]));
 
+            /* Added by Sergio 7-18-20 */
+            //Hawwai Deep Sea Fishing
+            Locations[10].TravelOptions.Add(new TravelOption("Go Back to The Front of the Makua Caves", Locations[3]));
+            Locations[10].TravelOptions.Add(new TravelOption("Go Back to The Harbor at Aloha Tower", Locations[2]));
             #endregion
 
             #region Objects
@@ -207,6 +215,18 @@ namespace TextBasedAdventureGame
             Locations[9].Items.Add(map);
             Locations[9].Items.Add(shovel);
 
+            /* Added by Sergio 7-18-20 */
+            // 10.) Hawaii Deep Sea Fishing
+            InventoryItem msgInBottle = new InventoryItem("Message in a Bottle Floating Around");
+            InventoryItem surfBoard = new InventoryItem("Surf Board with Shark Bite");
+            InventoryItem floatingTrash = new InventoryItem("A Bunch of Trash (Hope Your Thinking About the Environment)");
+            PortableHidingPlace wreckage = new PortableHidingPlace("Wreckage of What Appears to be an Old Boat", 1,
+                new InventoryItem("A Bag Full of Golden Ingots"));
+
+            Locations[10].Items.Add(msgInBottle);
+            Locations[10].Items.Add(surfBoard);
+            Locations[10].Items.Add(floatingTrash);
+            Locations[10].Items.Add(wreckage);
             #endregion
 
             #region  Old Travel Options

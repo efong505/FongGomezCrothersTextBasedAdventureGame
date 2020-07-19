@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="The Adventures of The Travelling CNM Attend Anywhere Student" Height="700" Width="820" Icon="6932f8af-90b2-41cc-b743-6ea0d97116db.jpeg">
     <Grid>
-        <TextBlock x:Name="txbLocationDescription" HorizontalAlignment="Left" Height="54" Margin="17,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
+        <Image HorizontalAlignment="Left" Height="98" Margin="26,23,0,0" VerticalAlignment="Top" Width="289" Source="1512149015708.png"/>
+        <TextBlock x:Name="txbLocationDescription" HorizontalAlignment="Left" Height="54" Margin="17,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="346"/>
         <ListBox x:Name="lbTraveOptions" HorizontalAlignment="Left" Height="100" Margin="15,383,0,0" VerticalAlignment="Top" Width="342" MouseDoubleClick="lbTraveOptions_MouseDoubleClick"/>
         <Label Content="Click on an option to travel in that direction:" HorizontalAlignment="Left" Margin="12,352,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385" Width="255" FontWeight="Bold"/>
         <Label Content="Location Description:" HorizontalAlignment="Left" Margin="12,140,0,0" VerticalAlignment="Top" Width="130" FontWeight="Bold"/>
@@ -16,8 +17,7 @@
         <Button x:Name="btnDrop" Content="&lt;--Drop" HorizontalAlignment="Left" Margin="402,308,0,0" VerticalAlignment="Top" Width="78" Click="btnDrop_Click" FontWeight="Bold"/>
         <Label Content="Game Status" HorizontalAlignment="Left" Margin="12,502,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.564,0.385" Width="81" FontWeight="Bold"/>
         <ListBox x:Name="lbGameStatus" HorizontalAlignment="Left" Height="100" Margin="15,533,0,0" VerticalAlignment="Top" Width="773"/>
-        <Image HorizontalAlignment="Left" Height="98" Margin="26,23,0,0" VerticalAlignment="Top" Width="289" Source="1512149015708.png"/>
-        <Label Content="         The CNM Attend &#xD;&#xA;Anywhere Traveling Student" HorizontalAlignment="Center" Margin="297,29,24,0" Height="92" Width="491" FontFamily="Times New Roman" FontSize="36" VerticalAlignment="Top" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+        <Label Content="         The CNM Attend &#xA;Anywhere Traveling Student" HorizontalAlignment="Center" Margin="291,29,30,0" Height="92" Width="491" FontFamily="Times New Roman" FontSize="36" VerticalAlignment="Top" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center"/>
 
     </Grid>
 </Window>
