@@ -148,7 +148,7 @@ namespace TextBasedAdventureGame
                 return 3;
             else return 4;
         }
-
+        
 
         // Button click event
         /// <summary>
